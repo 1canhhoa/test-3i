@@ -1,9 +1,11 @@
-export const handleItemNavBar=(value)=>{
-    const arr = JSON.parse(value[0]);
-    JSON.stringify(arr, (key, value) => {
-        if (typeof value === 'string') {
-          return value.replace(/"/g, '');
-        }
-        return value;})
-   
+export const handleItemNavBar=(value): string=>{
+    const arr = JSON.parse(value);
+    if( arr[0].title === 'Home'){
+      return arr[0].title=''
+    }
+    return arr[0].title;
 }
+
+export const getCurrentYear = () => {
+  return new Date().getFullYear();
+};

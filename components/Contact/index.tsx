@@ -12,10 +12,10 @@ const Contact = () => {
               "
             >
               <h2 className="mb-3 text-2xl font-bold text-black dark:text-white sm:text-3xl lg:text-2xl xl:text-3xl">
-                Need Help? Open a Ticket
+                Cần giúp đỡ? Mở một vé
               </h2>
               <p className="mb-12 text-base font-medium text-body-color">
-                Our support team will get back to you ASAP via email.
+                Nhóm hỗ trợ của chúng tôi sẽ liên hệ lại với bạn càng sớm càng tốt qua email.
               </p>
               <form>
                 <div className="-mx-4 flex flex-wrap">
@@ -25,11 +25,11 @@ const Contact = () => {
                         htmlFor="name"
                         className="mb-3 block text-sm font-medium text-dark dark:text-white"
                       >
-                        Your Name
+                        Họ và tên
                       </label>
                       <input
                         type="text"
-                        placeholder="Enter your name"
+                        placeholder="Họ và tên"
                         className="w-full rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
                       />
                     </div>
@@ -40,11 +40,11 @@ const Contact = () => {
                         htmlFor="email"
                         className="mb-3 block text-sm font-medium text-dark dark:text-white"
                       >
-                        Your Email
+                        Địa chỉ email
                       </label>
                       <input
                         type="email"
-                        placeholder="Enter your email"
+                        placeholder="Địa chỉ email"
                         className="w-full rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
                       />
                     </div>
@@ -55,19 +55,19 @@ const Contact = () => {
                         htmlFor="message"
                         className="mb-3 block text-sm font-medium text-dark dark:text-white"
                       >
-                        Your Message
+                        Vấn đề của bạn
                       </label>
                       <textarea
                         name="message"
                         rows={5}
-                        placeholder="Enter your Message"
+                        placeholder="Vấn đề của bạn"
                         className="w-full resize-none rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
                       ></textarea>
                     </div>
                   </div>
                   <div className="w-full px-4">
                     <button className="rounded-md bg-primary py-4 px-9 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp">
-                      Submit Ticket
+                      Gửi yêu cầu
                     </button>
                   </div>
                 </div>

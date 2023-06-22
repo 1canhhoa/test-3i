@@ -1,9 +1,11 @@
 import AboutSectionOne from "@/components/About/AboutSectionOne";
-import AboutSectionTwo from "@/components/About/AboutSectionTwo";
+import AboutSectionOneRTL from "@/components/About/AboutSectionOneRTL";
+import Services from "@/components/Services";
 import Blog from "@/components/Blog";
 import Brands from "@/components/Brands";
 import ScrollUp from "@/components/Common/ScrollUp";
 import Contact from "@/components/Contact";
+import LocationSystem from "@/components/LocationSystem";
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
 import Pricing from "@/components/Pricing";
@@ -18,15 +20,18 @@ export default function Home() {
     <>
       <ScrollUp />
       <Hero />
+      <AboutSectionOne />
+      <AboutSectionOneRTL />
+      {/* <AboutSectionTwo /> */}
+      <Services />
       <Features />
       <Video />
       <Brands />
-      <AboutSectionOne />
-      <AboutSectionTwo />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <Pricing />
       <Blog />
       <Contact />
+      <LocationSystem />
     </>
   );
 }
