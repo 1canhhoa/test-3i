@@ -4,8 +4,20 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
+import {GetMenuData} from'../../app/apis/GetDataHome';
+import {useQuery} from'@tanstack/react-query';
+import {handleItemNavBar} from'../../app/utils/util'
 
-const Header = () => {
+const  Header = () => {
+
+const {data}=useQuery({
+  queryKey:['List_Menu'],
+  queryFn:()=>GetMenuData()
+})
+
+
+console.log(data?.data)
+
   // Navbar toggle
   const [navbarOpen, setNavbarOpen] = useState(false);
   const navbarToggleHandler = () => {
@@ -102,11 +114,11 @@ const Header = () => {
                   }`}
                 >
                   <ul className="block lg:flex lg:space-x-12">
-                    {menuData.map((menuItem, index) => (
+                    {data?.data.map((menuItem, index) => (
                       <li key={menuItem.id} className="group relative">
-                        {menuItem.path ? (
+                        {menuItem.title ? (
                           <Link
-                            href={menuItem.path}
+                            href={handleItemNavBar( menuItem?.multiple_language)}
                             className={`flex py-2 text-base text-dark group-hover:opacity-70 dark:text-white lg:mr-0 lg:inline-flex lg:py-6 lg:px-0`}
                           >
                             {menuItem.title}
