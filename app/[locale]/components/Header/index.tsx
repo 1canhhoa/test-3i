@@ -37,8 +37,10 @@ const Header = ({title}) => {
   // Navbar toggle
   const [navbarOpen, setNavbarOpen] = useState(false);
   const navbarToggleHandler = () => {
-    setNavbarOpen(!navbarOpen);
-    document.querySelector('body').classList.toggle('NavOpen')
+    if  (window.innerWidth <= 1199 ){
+      setNavbarOpen(!navbarOpen);
+      document.querySelector('body').classList.toggle('NavOpen');
+    }
   };
 
   const [userClose, setUserClose] = useState(false);

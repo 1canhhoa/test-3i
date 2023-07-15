@@ -14,7 +14,8 @@
     -webkit-tap-highlight-color: transparent;
   }
 
-  .NavOpen{
+  .NavOpen,
+  .ModalOpen{
     overflow: hidden;
   }
 }
@@ -163,4 +164,8 @@
     background-color: #f7f7f7;
     text-align: center;
   }
+}
+
+.modal ul, .modal ol {
+  padding-inline-start: 40px;
 }

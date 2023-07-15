@@ -27,12 +27,12 @@ fontDescription?: string;
 }) => {
 return (
     <>
-    <section id="introduction" className={`relative z-10 overflow-hidden py-10 mt-28 lg:mt-[113px] bg-[linear-gradient(45deg,_#53b700,_#00c1bf)] dark:bg-none ${ fontFamily}`}>
+    <section id="introduction" className={`relative z-10 overflow-hidden py-10 mt-28 lg:mt-[72px] bg-[linear-gradient(45deg,_#53b700,_#00c1bf)] dark:bg-none ${ fontFamily}`}>
         <div className="flex items-center">
 
         <div className="container">
         <div className="-mx-4 flex flex-wrap items-center">
-            <div className="w-full px-4 md:w-8/12 lg:w-8/12">
+            <div className="w-full px-4 md:w-6/12 lg:w-6/12">
                 <div className=" max-w-[570px] md:mb-0 ">
                     <h1 className={`text-2xl font-bold text-white sm:text-3xl ${fontTitle}`}>{pageName}</h1>
                     <p className={`mt-[20px] text-base font-medium leading-relaxed text-white ${fontDescription}`}>{description}</p>
@@ -43,11 +43,11 @@ return (
                                 href={intoLink}
                                 className="rounded-md bg-[green] py-4 px-8 text-base font-semibold text-white duration-300 ease-in-out hover:bg-[green]/80"
                             >
-                                Giới thiệu
+                                Liên hệ với chúng tôi
                             </Link>
                             <Link
                                 href={quoteLink}
-                                className="rounded-md bg-black/20 py-4 px-8 text-base font-semibold text-black duration-300 ease-in-out hover:bg-black/30 dark:bg-white/20 dark:text-white dark:hover:bg-white/30"
+                                className="rounded-md bg-black/20 py-4 px-8 text-base font-semibold text-white duration-300 ease-in-out hover:bg-black/30 dark:bg-white/20 dark:text-white dark:hover:bg-white/30"
                             >
                                 Bảng giá
                             </Link>
@@ -56,11 +56,11 @@ return (
                     }
                 </div>
             </div>
-            <div className="w-full px-4 md:w-4/12 lg:w-4/12">
+            <div className="w-full px-4 md:w-6/12 lg:w-6/12">
                 <Image
                     alt="Picture of the author"
-                    width={500}
-                    height={500}
+                    width={700}
+                    height={700}
                     src={metaImage}
                 />
             </div>

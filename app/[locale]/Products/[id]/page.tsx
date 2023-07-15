@@ -7,6 +7,8 @@ import { GetAbout } from "../../apis/GetDataHome";
 import AboutSectionOne from "../../components/About/AboutSectionOne";
 import AboutSectionTwo from "../../components/About/AboutSectionTwo";
 import Introduction from "../../components/Common/Introduction";
+import ProductSystem from "../../components/Products/ProductSystem";
+import Document from "../../components/Products/Document";
 import {getImg} from '../../utils/util'
 import Contact from "../../components/Contact";
 
@@ -16,8 +18,7 @@ const blogFont = Merriweather({
 });
 
 const blogTitleFont = Noto_Serif({
-  subsets: ["vietnamese"],
-  weight: "400"
+  subsets: ["vietnamese"]
 })
 
 const blogDescriptionFont = Inter({
@@ -33,10 +34,9 @@ export async function generateMetadata(
   { params, searchParams }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
+
   const id = params.id;
-
-    const product = await GetAbout(Number(id));
-
+  const product = await GetAbout(Number(id));
   const previousImages = (await parent).openGraph?.images || [];
 
   return {
@@ -56,7 +56,7 @@ export default async function page({ params, searchParams }: Props) {
   let titleContent = data?.data?.title;
   let descriptionContent = data?.data?.short_content;
 
-  if (languageChoose !== 'CMS_LANGUAGE20211027001'){
+  if (languageChoose !== 'vi'){
     const multiLanguage = JSON.parse(data?.data?.multiple_language);
     multiLanguage.map((item) => {
       if (item.lgn === languageChoose){
@@ -71,20 +71,22 @@ export default async function page({ params, searchParams }: Props) {
   return (
     <>
       <Head>
-        <title>okkk</title>
-        <meta>item okk</meta>
+        <title>{titleContent}</title>
+        <meta name="description">{descriptionContent}</meta>
+        <meta property="og:image">{getImg(data?.data?.gallery)}</meta>
       </Head>
       <Introduction
         pageName={titleContent}
         description={descriptionContent}
-        metaImage={getImg(data.data.gallery)}
+        metaImage={getImg(data?.data?.gallery)}
         fontFamily={blogFont.className}
         fontTitle={blogTitleFont.className}
         fontDescription={blogDescriptionFont.className}
       />
-      <section className={`${blogFont.className} overflow-hidden section-blog-detail`}>
-        <div className="container mt-20" dangerouslySetInnerHTML={{ __html: dataContent }}></div>
-      </section>
+      <ProductSystem fontfamily={blogFont.className} fontTitle={blogTitleFont.className}/>
+      {dataContent &&
+        <Document fontfamily={blogFont.className} fontTitle={blogTitleFont.className} content={dataContent}/>
+      }
       <Contact />
     </>
   );

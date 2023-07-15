@@ -50,7 +50,26 @@ module.exports = {
       backgroundImage: {
         'nav-mobile': "url('/images/menu/map_menu.jpg')",
       },
+      keyframes: {
+        keyframes: {
+          fadeInDown: {
+            '0%': {
+              opacity: '0',
+              transform: 'translate3d(0, -100%, 0)'
+            },
+            to: {
+              opacity: '1',
+              transform: 'translateZ(0)'
+            }
+          }
+        },
+        animation: {
+          fadeInDown: 'fadeInDown 1s ease-in-out infinite'
+        }
+      }
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar'),
+  ],
 };
