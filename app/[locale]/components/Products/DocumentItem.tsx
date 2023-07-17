@@ -8,8 +8,6 @@ interface DocumentItemProps{
 }
 
 const DocumentItem: React.FC<DocumentItemProps> = ({ file }) => {
-  console.log(process.env.BACKEND_URL);
-
   return (
     <>
       {file.code === "File" && 

@@ -77,8 +77,6 @@ const Modal: React.FC<ModalProps> = ({
         return null;
     }
 
-    console.log(typeof(attachments));
-
     return (
         <>
             <div id={`modal-${id}`} 

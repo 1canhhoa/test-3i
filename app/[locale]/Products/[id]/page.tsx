@@ -3,40 +3,27 @@ import React from "react";
 import { ResolvingMetadata, type Metadata } from "next";
 import { Merriweather, Noto_Serif, Inter } from "next/font/google";
 
-import { GetAbout } from "../../apis/GetDataHome";
+import { GetItem } from "../../apis/GetDataHome";
 import {getImg} from '../../utils/util';
-import AboutSectionOne from "../../components/About/AboutSectionOne";
-import AboutSectionTwo from "../../components/About/AboutSectionTwo";
+import Contact from "../../components/Contact";
+import Document from "../../components/Products/Document";
 import Introduction from "../../components/Common/Introduction";
 import ProductSystem from "../../components/Products/ProductSystem";
-import Document from "../../components/Products/Document";
-import Contact from "../../components/Contact";
-
-const blogFont = Merriweather({
-  subsets: ["vietnamese"],
-  weight: "400"
-});
-
-const blogTitleFont = Noto_Serif({
-  subsets: ["vietnamese"]
-})
-
-const blogDescriptionFont = Inter({
-  subsets: ["vietnamese"]
-})
+import { blogFont, blogTitleFont, blogDescriptionFont } from "../../utils/fonts";
+import { type } from "os";
+import { local } from "../../utils/http";
 
 type Props = {
-  params: { id: string };
-  searchParams: { [key: string]: string | string[] | undefined };
+  params: {locale: string, id: string };
 };
 
 export async function generateMetadata(
-  { params, searchParams }: Props,
+  { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
 
   const id = params.id;
-  const product = await GetAbout(Number(id));
+  const product = await GetItem(Number(id));
   const previousImages = (await parent).openGraph?.images || [];
 
   return {
@@ -48,13 +35,16 @@ export async function generateMetadata(
   };
 }
 
-export default async function page({ params, searchParams }: Props) {
-  const data = await GetAbout(Number(params.id));
-  const languageChoose = searchParams.keyword;
+export default async function page({ params }: Props) {
+  const data = await GetItem(Number(params.id));
+  const languageChoose = params.locale;
 
   let dataFile = data?.data?.attributes;
+  let dataContent = data?.data?.content;
   let titleContent = data?.data?.title;
   let descriptionContent = data?.data?.short_content;
+  let catId = data?.data?.cat_id;
+  const dataLanguage = data?.data?.multiple_language;
 
   if (languageChoose !== 'vi'){
     const multiLanguage = JSON.parse(data?.data?.multiple_language);
@@ -83,7 +73,7 @@ export default async function page({ params, searchParams }: Props) {
         fontTitle={blogTitleFont.className}
         fontDescription={blogDescriptionFont.className}
       />
-      <ProductSystem fontfamily={blogFont.className} fontTitle={blogTitleFont.className} title={titleContent}/>
+      <ProductSystem fontfamily={blogFont.className} fontTitle={blogTitleFont.className} title={titleContent} catId={catId} />
       {dataFile &&
         <Document fontfamily={blogFont.className} fontTitle={blogTitleFont.className} title={titleContent} content={dataFile} />
       }

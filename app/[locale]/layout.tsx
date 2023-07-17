@@ -51,14 +51,12 @@ export default function RootLayout({
       {/* <head /> */}
 
       <body className={`${fontBase.className} dark:bg-black`}>
-        {/* <QueryClientProvider client={queryClient}> */}
           <Providers >
-            <Header title={t('signUp')} />
+            <Header />
             {children}
             <Footer />
             <ScrollToTop />
           </Providers>
-        {/* </QueryClientProvider> */}
       </body>
     </html>
   );

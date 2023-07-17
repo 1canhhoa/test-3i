@@ -1,10 +1,10 @@
 export const handleItemNavBar=(value): string=>{
-    const arr = JSON.parse(value);
-    if( arr[0].title === 'Home'){
-      return arr[0].title=''
-    }
-    // console.log(arr[0].title.string.replace(/\s+/g, ''))
-    return arr[0].title.replace(/\s+/g, '');
+  const arr = JSON.parse(value);
+  if( arr[0].title === 'Home'){
+    return arr[0].title=''
+  }
+  // console.log(arr[0].title.string.replace(/\s+/g, ''))
+  return arr[0].title.toLowerCase().replace(/\s+/g, '-');
 }
 
 export const getCurrentYear = () => {
@@ -13,5 +13,5 @@ export const getCurrentYear = () => {
 
 
 export const getImg=(value:string)=>{
-    return `https://backend.smartwork.3i.com.vn/${value}`
+  return `https://backend.smartwork.3i.com.vn/${value}`
 }

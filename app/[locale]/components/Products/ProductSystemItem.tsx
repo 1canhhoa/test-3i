@@ -2,13 +2,14 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-require('dotenv').config();
+import { IconType } from "react-icons"
 import { BsFiletypeDoc, BsFilePpt } from "react-icons/bs";
 import { SiMicrosoftexcel } from "react-icons/si";
 
 import { GetListCmsItem } from "../../apis/GetDataLogin";
 import Modal from "../Modals/Modal";
 import useModal from "../../hooks/useModal";
+import DocumentFile from "./DocumentFile";
 
 interface User { 
   Id:string,
@@ -20,9 +21,14 @@ interface ProductSystemItemProps {
   data: User;
 }
 
-const ProductSystemItem: React.FC<ProductSystemItemProps> = ({ data }:ProductSystemItemProps) => {
-  const modal = useModal();
-  const [ isLoading, setIsLoading ] = useState(false);
+interface FileProps {
+  icon: IconType;
+  label: string;
+  selected?: boolean;
+}
+
+const ProductSystemItem: React.FC<ProductSystemItemProps> = ({ data }) => {
+  console.log('system child: ', data);
   const [listCmsItem, setListCmsItem] = useState<any>({});
   const [selectedItemId, setSelectedItemId] = useState(null);
 
@@ -43,14 +49,7 @@ const ProductSystemItem: React.FC<ProductSystemItemProps> = ({ data }:ProductSys
     <ul className="px-0 py-[15px]">
       {listCmsItem?.data?.Object[0]?.attachments.map((file) => (
         <li key={file.id} className="inline mr-[10px] pr-[10px] border-r-[1px] border-[#71bc42] last:border-r-0">
-          <a className="text-[#71bc42] hover:text-[#4f832e]" href={`${process.env.BACKEND_UR}${file.file_url}`}>
-            <span className="inline-block mr-[7px] align-middle">
-              {file.file_type === '.docx' || file.docx === 'doc' ? <BsFiletypeDoc size={18}/> : ""}
-              {file.file_type === '.xlsx' || file.docx === 'xls' ? <SiMicrosoftexcel size={18}/> : ""}
-              {file.file_type === '.pptx' || file.docx === 'ppt' ? <BsFilePpt size={18}/> : ""}
-            </span>
-            <span className="inline-block align-middle">{file.file_name}</span>
-          </a>
+          <DocumentFile type={file.file_name} icon={BsFiletypeDoc} label={file.file_name} link={`${process.env.BACKEND_UR}${file.file_url}`} />
         </li>
       ))}
     </ul>

@@ -33,8 +33,6 @@ export async function generateMetadata(
 
 export default async function page({params,searchParams}:Props) {
     const data= await GetAbout( Number( params.id))
-
-    console.log(data)
   return (
     <div>
       <Head>
