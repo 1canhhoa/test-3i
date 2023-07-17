@@ -4,12 +4,12 @@ import { ResolvingMetadata, type Metadata } from "next";
 import { Merriweather, Noto_Serif, Inter } from "next/font/google";
 
 import { GetAbout } from "../../apis/GetDataHome";
+import {getImg} from '../../utils/util';
 import AboutSectionOne from "../../components/About/AboutSectionOne";
 import AboutSectionTwo from "../../components/About/AboutSectionTwo";
 import Introduction from "../../components/Common/Introduction";
 import ProductSystem from "../../components/Products/ProductSystem";
 import Document from "../../components/Products/Document";
-import {getImg} from '../../utils/util'
 import Contact from "../../components/Contact";
 
 const blogFont = Merriweather({
@@ -52,7 +52,7 @@ export default async function page({ params, searchParams }: Props) {
   const data = await GetAbout(Number(params.id));
   const languageChoose = searchParams.keyword;
 
-  let dataContent = data?.data?.content;
+  let dataFile = data?.data?.attributes;
   let titleContent = data?.data?.title;
   let descriptionContent = data?.data?.short_content;
 
@@ -83,9 +83,9 @@ export default async function page({ params, searchParams }: Props) {
         fontTitle={blogTitleFont.className}
         fontDescription={blogDescriptionFont.className}
       />
-      <ProductSystem fontfamily={blogFont.className} fontTitle={blogTitleFont.className}/>
-      {dataContent &&
-        <Document fontfamily={blogFont.className} fontTitle={blogTitleFont.className} content={dataContent}/>
+      <ProductSystem fontfamily={blogFont.className} fontTitle={blogTitleFont.className} title={titleContent}/>
+      {dataFile &&
+        <Document fontfamily={blogFont.className} fontTitle={blogTitleFont.className} title={titleContent} content={dataFile} />
       }
       <Contact />
     </>

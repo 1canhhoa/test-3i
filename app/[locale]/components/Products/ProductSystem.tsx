@@ -3,17 +3,17 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { usePathname, useSearchParams   } from "next/navigation";
 import Link from "next/link";
-import dotenv from 'dotenv';
 
 import { GetTreeCategoryData } from "../../apis/GetDataLogin";
 import ProductSystemItem from "../../components/Products/ProductSystemItem";
 
 interface ProductSystemProps {
+  title?: string
   fontfamily?: string;
   fontTitle?: string;
 }
 
-const ProductSystem: React.FC<ProductSystemProps> = ({ fontfamily, fontTitle }) => {
+const ProductSystem: React.FC<ProductSystemProps> = ({ fontfamily, fontTitle, title }) => {
   const pathname  = usePathname();
   const [ isLoading, setIsLoading ] = useState(false);
   const [treeCategory, setTreeCategory] = useState<any>([]);
@@ -26,12 +26,11 @@ const ProductSystem: React.FC<ProductSystemProps> = ({ fontfamily, fontTitle }) 
   };
 
   useEffect(() => {
-    dotenv.config();
     fetchData();
   }, []);
 
   treeCategory?.data?.forEach(obj => {
-    if (obj.HasChild === true) {
+    if (obj.HasChild === true && obj.Level === 0) {
       parentItem.push(obj);
     } else {
       childItem.push(obj);
@@ -41,7 +40,7 @@ const ProductSystem: React.FC<ProductSystemProps> = ({ fontfamily, fontTitle }) 
   return (
     <section id="productSystem" className={`w-full ${fontfamily} mt-[72px]`}>
       <div className="container">
-        <h2 className={`text-[28px] font-bold text-center mb-[30px] ${fontTitle}`}>Danh mục chức năng Smartwork</h2>
+        <h2 className={`text-[28px] font-bold text-center mb-[30px] ${fontTitle}`}>Danh mục chức năng {title}</h2>
         <div className="flex flex-wrap">
           {parentItem.map((parent) => {
             return (

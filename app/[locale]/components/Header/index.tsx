@@ -16,9 +16,7 @@ import {useTranslations} from 'next-intl';
 
 
 
-const Header = ({title}) => {
-  console.log(title)
-  
+const Header = ({title}) => {  
   const [data,setData]=useState([]);
   const [languageData,setLanguageData]=useState([]);
 
@@ -164,7 +162,7 @@ const Header = ({title}) => {
 
                         {menuItem?.children.length > 0 && (
                           <div
-                            className={`submenu relative top-full left-0 rounded-md pl-[20px] bg-none xl:bg-white transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark xl:invisible xl:absolute xl:top-[110%] xl:block xl:w-[250px] xl:p-4 xl:opacity-0 xl:shadow-lg xl:group-hover:visible xl:group-hover:top-full ${
+                            className={`submenu relative top-full left-0 rounded-b-md pl-[20px] bg-none xl:bg-white transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark xl:invisible xl:absolute xl:top-[110%] xl:block xl:w-[250px] xl:p-4 xl:opacity-0 xl:shadow-lg xl:group-hover:visible xl:group-hover:top-full ${
                               openIndex === index ? "block" : "hidden"
                             }`}
                           >

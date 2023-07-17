@@ -40,13 +40,13 @@ return (
                         <div className="text-base !leading-relaxed text-body-color mt-[50px]">
                             <div className="flex flex-col items-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
                             <Link
-                                href={intoLink}
+                                href={quoteLink}
                                 className="rounded-md bg-[green] py-4 px-8 text-base font-semibold text-white duration-300 ease-in-out hover:bg-[green]/80"
                             >
                                 Liên hệ với chúng tôi
                             </Link>
                             <Link
-                                href={quoteLink}
+                                href={intoLink}
                                 className="rounded-md bg-black/20 py-4 px-8 text-base font-semibold text-white duration-300 ease-in-out hover:bg-black/30 dark:bg-white/20 dark:text-white dark:hover:bg-white/30"
                             >
                                 Bảng giá

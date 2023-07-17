@@ -6,6 +6,10 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  reactStrictMode: true,
+  env: {
+    BACKEND_URL: process.env.BACKEND_URL,
+  }
 };
 
 const withNextIntl = require('next-intl/plugin')(
