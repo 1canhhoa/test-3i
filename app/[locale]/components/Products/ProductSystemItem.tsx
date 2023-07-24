@@ -67,14 +67,14 @@ const ProductSystemItem: React.FC<ProductSystemItemProps> = ({ data }) => {
     <li className="w-1/2 mb-[10px] px-[3px]" id={data.Id}>
       <span
         onClick={() => handleOpenModal(data.Id)}
-        className="cursor-pointer block py-[10px] border-[1px] border-[transparent] border-b-[#f5f5f5] hover:border-b-[#5ab46c] hover:shadow-sm"
+        className="cursor-pointer block py-[10px] border-[1px] border-[transparent] border-b-[#f5f5f5] hover:border-b-[#5ab46c] hover:shadow-[0px_0px_2px_1px_rgba(0,0,0,0.1)]"
       >
         {data?.Image ?
           <Image src={`${process.env.BACKEND_URL}/${data?.Image}`} width={20} height={20} alt={data.Title} className="inline mr-[5px] align-middle" />
           :
           <Image src="/images/common/icon-structure-default.png" width={20} height={20} alt={data.Title} className="inline mr-[5px] align-middle" />
         }
-        <span className="inline align-middle uppercase text-[12px]">{data.Title}</span>
+        <span className="inline align-middle uppercase text-[11px]">{data.Title}</span>
       </span>
       {selectedItemId === data.Id &&
         <Modal id={data.Id} isOpen={true} onClose={handleClose} title={`Chi tiết về ${listCmsItem?.data?.Object[0]?.title}`} body={bodyContent} attachments={attachments} modalWidth="w-3/6 lg:w-4/6 xl:w-4/6 " />

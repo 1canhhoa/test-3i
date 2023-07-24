@@ -7,14 +7,9 @@ import ScrollToTop from "../[locale]/components/ScrollToTop";
 import "node_modules/react-modal-video/css/modal-video.css";
 import "../../styles/index.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Montserrat } from "next/font/google";
 import {useLocale} from'next-intl';
 import {notFound} from'next/navigation';
 import {useTranslations} from 'next-intl';
-
-
-
-const fontBase = Montserrat({ subsets: ["latin"] });
 
 const queryClient = new QueryClient();
 
@@ -50,7 +45,7 @@ export default function RootLayout({
       */}
       {/* <head /> */}
 
-      <body className={`${fontBase.className} dark:bg-black`}>
+      <body className={`dark:bg-black`}>
           <Providers >
             <Header />
             {children}

@@ -1,4 +1,8 @@
-import { Merriweather, Noto_Serif, Inter } from "next/font/google";
+import { Montserrat, Merriweather, Noto_Serif, Inter, Oswald } from "next/font/google";
+
+export const fontBase = Montserrat({ 
+    subsets: ["vietnamese"] 
+});
 
 export const blogFont = Merriweather({
     subsets: ["vietnamese"],
@@ -10,5 +14,9 @@ export const blogTitleFont = Noto_Serif({
 })
 
 export const blogDescriptionFont = Inter({
+    subsets: ["vietnamese"]
+})
+
+export const systemStructure = Oswald({
     subsets: ["vietnamese"]
 })

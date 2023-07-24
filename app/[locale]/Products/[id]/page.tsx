@@ -9,7 +9,7 @@ import Contact from "../../components/Contact";
 import Document from "../../components/Products/Document";
 import Introduction from "../../components/Common/Introduction";
 import ProductSystem from "../../components/Products/ProductSystem";
-import { blogFont, blogTitleFont, blogDescriptionFont } from "../../utils/fonts";
+import { blogFont, blogTitleFont, blogDescriptionFont, systemStructure } from "../../utils/fonts";
 import { type } from "os";
 import { local } from "../../utils/http";
 
@@ -47,7 +47,7 @@ export default async function page({ params }: Props) {
   const dataLanguage = data?.data?.multiple_language;
 
   if (languageChoose !== 'vi'){
-    const multiLanguage = JSON.parse(data?.data?.multiple_language);
+    const multiLanguage = JSON.parse(dataLanguage);
     multiLanguage.map((item) => {
       if (item.lgn === languageChoose){
         dataContent = item.content;
@@ -69,13 +69,11 @@ export default async function page({ params }: Props) {
         pageName={titleContent}
         description={descriptionContent}
         metaImage={getImg(data?.data?.gallery)}
-        fontFamily={blogFont.className}
-        fontTitle={blogTitleFont.className}
-        fontDescription={blogDescriptionFont.className}
+        fontTitle={systemStructure.className}
       />
-      <ProductSystem fontfamily={blogFont.className} fontTitle={blogTitleFont.className} title={titleContent} catId={catId} />
+      <ProductSystem fontTitle={systemStructure.className} title={titleContent} catId={catId} />
       {dataFile &&
-        <Document fontfamily={blogFont.className} fontTitle={blogTitleFont.className} title={titleContent} content={dataFile} />
+        <Document fontTitle={systemStructure.className} title={titleContent} content={dataFile} />
       }
       <Contact />
     </>

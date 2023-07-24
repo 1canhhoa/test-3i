@@ -41,13 +41,13 @@ const ProductSystem: React.FC<ProductSystemProps> = ({ fontfamily, fontTitle, ti
   return (
     <section id="productSystem" className={`w-full ${fontfamily} mt-[72px]`}>
       <div className="container">
-        <h2 className={`text-[28px] font-bold text-center mb-[30px] ${fontTitle}`}>Danh mục chức năng {title}</h2>
+        <h2 className={`text-[28px] font-semibold text-center mb-[40px] ${fontTitle}`}>Danh mục chức năng {title}</h2>
         <div className="flex flex-wrap">
           {parentItem.map((parent) => {
             const imageParent = parent?.Image ? `${process.env.BACKEND_URL}${parent?.Image}` : '/images/common/icon-structure-default.png';
             return (
-              <div key={parent.Id} className="w-1/2 px-[15px] mb-[48px]">
-                <h3 className={`text-center font-bold mb-[30px] text-[20px] underline leading-6 ${fontTitle}`}>
+              <div key={parent.Id} className="w-1/2 px-[15px] mb-[48px] border-r-[1px] border-r-[#dee2e6] even:border-r-0">
+                <h3 className={`text-center font-medium mb-[30px] text-[24px] underline leading-6 ${fontTitle}`}>
                   <Image src={imageParent} width={20} height={20} alt={parent.Title} className="inline mr-[5px] align-middle" />
                   {parent.Title}
                 </h3>

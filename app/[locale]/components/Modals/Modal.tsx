@@ -94,12 +94,12 @@ const Modal: React.FC<ModalProps> = ({
                         <IoMdClose size={16}/>
                     </button>
                     <div 
-                        className={`transition-all duration-300 ease-in w-full h-full max-h-[80vh] overflow-y-auto scrollbar-none animate-fadeInDown rounded-[10px]
+                        className={`transition-all duration-300 ease-in w-full h-full animate-fadeInDown rounded-[10px] overflow-hidden
                             ${showModal ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"}
                         `}>
-                            <div className="translate h-full lg:h-auto md:h-auto border-0 shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                            <div className="translate w-full h-full lg:h-auto md:h-auto border-0 shadow-lg relative flex flex-col bg-white outline-none focus:outline-none max-h-[95vh] overflow-y-auto">
                                 <div className="flex items-center p-6 justify-center border-b-[1px] border-b-[#f5f5f5]">
-                                    <div className="text-lg font-semibold">{title}</div>
+                                    <h2 className="text-lg font-medium text-[24px]">{title}</h2>
                                 </div>
                                 <div className="relative p-6 flex-auto">{body}</div>
                                 {attachments}
