@@ -1,5 +1,6 @@
-import AboutSectionOne from "../[locale]/components/About/AboutSectionOne";
+import { Montserrat } from "@next/font/google";
 
+import AboutSectionOne from "../[locale]/components/About/AboutSectionOne";
 import AboutSectionOneRTL from "../[locale]/components/About/AboutSectionOneRTL";
 import Products from "../[locale]/components/Products";
 import Blog from "../[locale]/components/Blog";
@@ -12,7 +13,6 @@ import Hero from "../[locale]/components/Hero";
 import Pricing from "../[locale]/components/Pricing";
 import Testimonials from "../[locale]/components/Testimonials";
 import Video from "../[locale]/components/Video";
-import { Montserrat } from "@next/font/google";
 import {  ResolvingMetadata  ,type Metadata} from 'next';
 import Logo3i from'../../public/images/logo/logo.png';
 
@@ -39,25 +39,15 @@ export async function generateMetadata(
 }
 
 export default function Home() {
-
-
-
   return (
     <>
       <ScrollUp />
       <Hero />
       <AboutSectionOne />
       <AboutSectionOneRTL />
-      {/* <AboutSectionTwo /> */}
       <Products />
       <Features />
-      {/* <Video /> */}
-      {/* <Brands /> */}
-      {/* <Testimonials /> */}
-      {/* <Pricing /> */}
-      {/* <Blog /> */}
       <LocationSystem />
-      {/* <Contact /> */}
     </>
   );
 }
