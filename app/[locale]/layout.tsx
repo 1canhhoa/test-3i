@@ -7,9 +7,9 @@ import ScrollToTop from "../[locale]/components/ScrollToTop";
 import "node_modules/react-modal-video/css/modal-video.css";
 import "../../styles/index.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import {useLocale} from'next-intl';
-import {notFound} from'next/navigation';
-import {useTranslations} from 'next-intl';
+import { useLocale } from'next-intl';
+import { notFound } from'next/navigation';
+import { useTranslations } from 'next-intl';
 
 const queryClient = new QueryClient();
 
@@ -22,7 +22,8 @@ export const metadata = {
 
 
 export default function RootLayout({
-  children,params
+  children,
+  params
 }: {
   children: React.ReactNode;
   params?:any
@@ -38,7 +39,7 @@ export default function RootLayout({
   const t = useTranslations('Index');
 
   return (
-    <html suppressHydrationWarning lang={locale}>
+    <html lang={locale}>
       {/*
         <head /> will contain the components returned by the nearest parent
         head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head

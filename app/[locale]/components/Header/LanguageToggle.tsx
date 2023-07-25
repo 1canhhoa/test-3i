@@ -17,6 +17,7 @@ const LanguageToggle = ( languageData) => {
   return (
     <div className="relative">
       <button
+        title="Change Language"
         onClick={() => setOpenDropDown(!openDropDown)}
         className="ml-7 cursor-pointer items-center justify-center rounded-full text-black dark:text-white h-7 w-7"
       >
@@ -26,7 +27,7 @@ const LanguageToggle = ( languageData) => {
         {languageData?.languageData?.map((item, index) => {
           return (
             <li key={index} value={item.Code} className="mb-[5px]">
-              <Link href={{pathname:`${pathname}`,query: { keyword: `${item.Code}` }}} className="mb-[5px] cursor-pointer" locale={item.IOSCode ? item.IOSCode : 'vi'}>{item.Name}</Link>
+              <Link href="/" className="mb-[5px] cursor-pointer" locale={item.IOSCode ? item.IOSCode : 'vi'}>{item.Name}</Link>
             </li>
           )
         })}
