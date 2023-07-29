@@ -14,7 +14,7 @@ import Pricing from "../[locale]/components/Pricing";
 import Testimonials from "../[locale]/components/Testimonials";
 import Video from "../[locale]/components/Video";
 import {  ResolvingMetadata  ,type Metadata} from 'next';
-import Logo3i from'../../public/images/logo/logo.png';
+import Logo3i from'@/public/images/logo/logo.png';
 
 
 type Props = {

@@ -5,7 +5,7 @@ import Header from "../[locale]/components/Header";
 import ScrollToTop from "../[locale]/components/ScrollToTop";
 
 import "node_modules/react-modal-video/css/modal-video.css";
-import "../../styles/index.css";
+import "@/styles/index.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useLocale } from'next-intl';
 import { notFound } from'next/navigation';

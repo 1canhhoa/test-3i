@@ -4,17 +4,16 @@ import SectionTitle from "../Common/SectionTitle";
 import SingleFeature from "./SingleFeature";
 import featuresData from "./featuresData";
 import {useQuery} from'@tanstack/react-query';
-import {GetMenuData} from'../../apis/GetDataHome';
+import {GetMenuData} from '../../apis/GetDataHome';
 
-import Dv1 from'../../../../public/images/services/dv1.svg';
-
-import Dv2 from'../../../../public/images/services/dv2.svg';
-import Dv3 from'../../../../public/images/services/dv3.svg';
-import Dv4 from'../../../../public/images/services/dv4.svg';
-import Dv5 from'../../../../public/images/services/dv5.svg';
-import Dv6 from'../../../../public/images/services/dv6.svg';
-import Dv7 from'../../../../public/images/services/app-development_638cc82b.svg';
-import Dv8 from'../../../../public/images/services/dv8.svg'
+import Dv1 from'@/public/images/services/dv1.svg';
+import Dv2 from '@/public/images/services/dv2.svg';
+import Dv3 from '@/public/images/services/dv3.svg';
+import Dv4 from '@/public/images/services/dv4.svg';
+import Dv5 from '@/public/images/services/dv5.svg';
+import Dv6 from '@/public/images/services/dv6.svg';
+import Dv7 from '@/public/images/services/app-development_638cc82b.svg';
+import Dv8 from '@/public/images/services/dv8.svg'
 
 const  Features = () => {
   const data={
