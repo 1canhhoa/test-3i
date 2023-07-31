@@ -63,7 +63,7 @@ module.exports = {
         }
       },
       animation: {
-        fadeInDown: 'fadeInDown 1s ease-in-out infinite'
+        fadeInDown: 'fadeInDown 1s ease-in-out'
       }
     },
   },
