@@ -42,5 +42,6 @@ Go to [https://ap-southeast-2.console.aws.amazon.com/console](https://ap-southea
 - Login with your account
 - Choose AWS Amplify
 - Choose New app -> Host web app -> Github
+  
 Please reference in [https://docs.google.com/document/d/1u13RXxV97B7GbuSqY-5ExSUYB-cxvA57lpHWFiVaosc/edit?usp=sharing](https://docs.google.com/document/d/1u13RXxV97B7GbuSqY-5ExSUYB-cxvA57lpHWFiVaosc/edit?usp=sharing)
 
