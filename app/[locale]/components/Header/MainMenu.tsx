@@ -20,7 +20,7 @@ const MainMenu = ({dataMenu, navbarOpen, navbarToggleHandler}) => {
     return (
         <nav
             id="navbarCollapse"
-            className={`max-[1200px]:overflow-y-auto bg-nav-mobile xl:bg-none navbar fixed top-[60px] xs:top-[80px] md:top-[90px] lg:top-[100px] right-0 bottom-0 z-30 ease border-body-color/50 bg-white px-4 py-4 duration-300 dark:border-body-color/20 dark:bg-dark xl:visible xl:static xl:w-auto xl:border-none xl:!bg-transparent xl:p-0 xl:opacity-100 ${
+            className={`max-[1200px]:overflow-y-auto max-[1200px]:h-screen bg-nav-mobile xl:bg-none navbar fixed top-[50px] xs:top-[75px] md:top-[65px] lg:top-[65px] right-0 bottom-0 z-30 ease border-body-color/50 bg-white px-4 py-4 duration-300 dark:border-body-color/20 dark:bg-dark xl:visible xl:static xl:w-auto xl:border-none xl:!bg-transparent xl:p-0 xl:opacity-100 ${
             navbarOpen
                 ? "visibility left-[0] opacity-100"
                 : "invisible left-[-100%] opacity-0"

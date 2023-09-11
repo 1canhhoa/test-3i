@@ -57,7 +57,7 @@ const Header = () => {
           sticky
             ? "!fixed !z-[9999] !bg-white !bg-opacity-80 shadow-sticky backdrop-blur-sm !transition dark:!bg-[green] dark:!bg-opacity-20"
             : "absolute"
-        } h-[${72}px]`}
+        } h-[${72}px] max-[450px]:h-[50px]`}
       >
         <div className="w-full px-[20px]">
           <div className={`relative -mx-4 flex items-center justify-between ${sticky ? "animate-fadeInUp" : "py-0"}`}>

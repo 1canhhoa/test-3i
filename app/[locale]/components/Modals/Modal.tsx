@@ -83,7 +83,7 @@ const Modal: React.FC<ModalProps> = ({
                 className={`${className ? className + ' ' : ''}modal justify-center items-center flex fixed inset-0 z-50 outline-none focus:outline-none bg-black bg-opacity-50 !z-[9999]
                 ${showModal ? "opacity-100 visible" : "opacity-0 hidden"}
             `}>
-                <div className={`relative w-full my-6 mx-auto h-full lg:h-auto md:h-auto
+                <div className={`relative w-5/6 my-6 mx-auto h-auto lg:h-auto md:h-auto
                     ${modalWidth ? modalWidth : "md:w-4/6 lg:w-3/6 xl:w-2/5"} 
                 `}>
                     <button 
