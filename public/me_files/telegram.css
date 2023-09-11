@@ -5878,7 +5878,7 @@ only screen and (min-device-pixel-ratio: 2.5) {
   .tgme_page_photo_image {
     width: 110px;
     height: 110px;
-    border-radius: 55px;
+    /* border-radius: 55px; */
   }
 
   .tgme_page {
