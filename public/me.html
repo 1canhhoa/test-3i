@@ -79,8 +79,8 @@
                 fill="var(--tme-logo-color)" fill-rule="nonzero"></path>
             </g>
           </svg> -->
-          <img alt="logo" loading="lazy" width="250" height="55" decoding="async" data-nimg="1"
-            class="w-full dark:hidden" style="color:transparent" src="/images/logo/logo.png">
+          <!-- <img alt="logo" loading="lazy" width="250" height="55" decoding="async" data-nimg="1"
+            class="w-full dark:hidden" style="color:transparent" src="/images/logo/logo.png"> -->
         </a>
         <a class="tgme_head_right_btn" onclick="downloadApp()">
           Download
@@ -117,9 +117,14 @@
 
   <script src="./me_files/tgwallpaper.min.js.download"></script>
 
-  <!-- <script type="text/javascript">
+  <script type="text/javascript">
 
-    var protoUrl = "tg:\/\/resolve?domain=username";
+    const url_string = window.location.href;
+    const url = new URL(url_string);
+    const func = url.searchParams.get("func");
+    const pin = url.searchParams.get("pin");
+    const id = url.searchParams.get("id");
+    var protoUrl = `iii://3i.com.vn/me?func=${func}&pin=${pin}&id=${id}`;
     if (false) {
       var iframeContEl = document.getElementById('tgme_frame_cont') || document.body;
       var iframeEl = document.createElement('iframe');
@@ -167,7 +172,7 @@
     }
 
 
-  </script> -->
+  </script>
   <script>
     function openInApp() {
       const url_string = window.location.href;
