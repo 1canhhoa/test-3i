@@ -125,7 +125,8 @@
     const pin = url.searchParams.get("pin");
     const id = url.searchParams.get("id");
     const date = url.searchParams.get("date");
-    var protoUrl = `iii://3i.com.vn/me?func=${func}&pin=${pin}&id=${id}&date=${date}`;
+    const name = url.searchParams.get("name");
+    var protoUrl = `iii://3i.com.vn/me?func=${func}&pin=${pin}&id=${id}&date=${date}&name=${name}`;
     if (false) {
       var iframeContEl = document.getElementById('tgme_frame_cont') || document.body;
       var iframeEl = document.createElement('iframe');
@@ -182,7 +183,8 @@
       const pin = url.searchParams.get("pin");
       const id = url.searchParams.get("id");
       const date = url.searchParams.get("date");
-      window.open(`iii://3i.com.vn/me?func=${func}&pin=${pin}&id=${id}&date=${date}`);
+      const name = url.searchParams.get("name");
+      window.open(`iii://3i.com.vn/me?func=${func}&pin=${pin}&id=${id}&date=${date}&name=${name}`);
     }
     function downloadApp() {
       const os = getMobileOperatingSystem();
