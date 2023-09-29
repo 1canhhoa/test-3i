@@ -46,7 +46,7 @@ export default async function page({ params }: Props) {
   let catId = data?.data?.cat_id;
   const dataLanguage = data?.data?.multiple_language;
 
-  if (languageChoose !== 'vi'){
+  if (languageChoose !== 'vi' && params.id !== '383'){
     const multiLanguage = JSON.parse(dataLanguage);
     multiLanguage.map((item) => {
       if (item.lgn === languageChoose){

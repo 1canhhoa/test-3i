@@ -1,9 +1,9 @@
 import React from 'react';
-import {GetAbout} from'../../apis/GetDataHome';
+import {GetAbout} from'../apis/GetDataHome';
 
-import Breadcrumb from "../../components/Common/Breadcrumb";
+import Breadcrumb from "../components/Common/Breadcrumb";
 
-import {getImg} from '../../utils/util';
+import {getImg} from '../utils/util';
 import { ResolvingMetadata, type Metadata } from "next";
 
 

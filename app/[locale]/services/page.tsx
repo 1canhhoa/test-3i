@@ -1,10 +1,10 @@
 import { Merriweather, Noto_Serif, Inter } from "next/font/google";
 
-import Introduction from "../../components/Common/Introduction";
-import { GetItemServices } from "../../apis/GetDataHome";
+import Introduction from "../components/Common/Introduction";
+import { GetItemServices } from "../apis/GetDataHome";
 import { ResolvingMetadata, type Metadata } from "next";
-import {GetAbout} from'../../apis/GetDataHome';
-import {getImg} from'../../utils/util';
+import {GetAbout} from'../apis/GetDataHome';
+import {getImg} from'../utils/util';
 
 const blogFont = Merriweather({
   subsets: ["vietnamese"],
@@ -60,7 +60,7 @@ const ServiceItemPage = async({ params, searchParams }: Props) => {
       />
 
       <section id={`service-${params.id}`} className={`${blogFont.className} section-blog-detail`}>
-        <div className="container mt-20"><div dangerouslySetInnerHTML={{ __html: serviceItem?.data?.content }} /></div>
+        {/* <div className="container mt-20"><div dangerouslySetInnerHTML={{ __html: serviceItem?.data?.content }} /></div> */}
       </section>
     </>
   );
