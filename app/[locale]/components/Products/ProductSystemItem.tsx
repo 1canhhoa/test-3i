@@ -77,7 +77,7 @@ const ProductSystemItem: React.FC<ProductSystemItemProps> = ({ data }) => {
         <span className="inline align-middle uppercase text-[11px]">{data.Title}</span>
       </span>
       {selectedItemId === data.Id &&
-        <Modal id={data.Id} isOpen={true} onClose={handleClose} title={`Chi tiết về ${listCmsItem?.data?.Object[0]?.title}`} body={bodyContent} attachments={attachments} modalWidth="w-3/6 lg:w-4/6 xl:w-4/6 " />
+        <Modal id={data.Id} isOpen={true} onClose={handleClose} title={`Chi tiết về ${listCmsItem?.data?.Object[0]?.title}`} body={bodyContent} attachments={attachments} modalWidth="w-5/6 lg:w-4/6 xl:w-4/6 " />
       }
     </li>
   );
