@@ -19,7 +19,7 @@ const LanguageToggle = ( languageData) => {
       <button
         title="Change Language"
         onClick={() => setOpenDropDown(!openDropDown)}
-        className="ml-7 cursor-pointer items-center justify-center rounded-full text-black dark:text-white h-7 w-7"
+        className="ml-7 mt-[3px] cursor-pointer items-center justify-center rounded-full text-black dark:text-white h-7 w-7"
       >
         <FaEarthAsia className="w-full h-full"/>
       </button>

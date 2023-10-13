@@ -133,7 +133,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <a
-                      href="/"
+                      href="/en/careers"
                       className="mb-4 inline-block text-base font-medium  hover:text-primary"
                     >
                       {" "}
@@ -142,7 +142,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <a
-                      href="/"
+                      href="/en/contact"
                       className="mb-4 inline-block text-base font-medium  hover:text-primary"
                     >
                       {" "}
@@ -161,7 +161,7 @@ const Footer = () => {
                 <ul>
                   <li>
                     <a
-                      href="/"
+                      href="/en/products/2706"
                       className="mb-4 inline-block text-base font-medium  hover:text-primary"
                     >
                       {" "}
@@ -170,7 +170,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <a
-                      href="/"
+                      href="/en/services"
                       className="mb-4 inline-block text-base font-medium  hover:text-primary"
                     >
                       {" "}
@@ -179,7 +179,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <a
-                      href="/"
+                      href="/en/technology/2727"
                       className="mb-4 inline-block text-base font-medium  hover:text-primary"
                     >
                       {" "}
@@ -216,7 +216,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <a
-                      href="/"
+                      href="/en/about-us"
                       className="mb-4 inline-block text-base font-medium  hover:text-primary"
                     >
                       {" "}

@@ -112,7 +112,7 @@ const NewsLatterBox = () => {
             type="button"
             className="duration-80 mb-4 w-[47%] cursor-pointer rounded-md border border-transparent bg-[green] py-3 px-6 text-center text-base font-medium text-white outline-none transition ease-in-out hover:bg-opacity-80 hover:shadow-signUp focus-visible:shadow-none"
           >
-            Tải lên cấu chúc công ty
+            Tải lên cấu trúc công ty
           </button>
           <input
             ref={refInput}
