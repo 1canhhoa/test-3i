@@ -7,12 +7,12 @@ import Logo from "./Logo";
 import MainMenu from "./MainMenu";
 import HeaderTools from "./HeaderTools";
 
-import { GetMenuData,GetLanguage } from "../../apis/GetDataHome";
+import { GetMenuData, GetLanguage } from "../../apis/GetDataHome";
 import NavToggle from "./NavToggle";
 
-const Header = () => {  
-  const [dataMenu, setDataMenu]= useState([]);
-  const [languageData, setLanguageData]= useState([]);
+const Header = () => {
+  const [dataMenu, setDataMenu] = useState([]);
+  const [languageData, setLanguageData] = useState([]);
 
   const dataMenuFetch = async () => {
     try {
@@ -43,10 +43,10 @@ const Header = () => {
   // Navbar toggle
   const [navbarOpen, setNavbarOpen] = useState(false);
   const navbarToggleHandler = () => {
-      if  (window.innerWidth <= 1199 ){
+    if (window.innerWidth <= 1199) {
       setNavbarOpen(!navbarOpen);
-      document.querySelector('body').classList.toggle('NavOpen');
-      }
+      document.querySelector("body").classList.toggle("NavOpen");
+    }
   };
 
   return (
@@ -60,16 +60,27 @@ const Header = () => {
         } h-[${72}px] max-[450px]:h-[50px]`}
       >
         <div className="w-full px-[20px]">
-          <div className={`relative -mx-4 flex items-center justify-between ${sticky ? "animate-fadeInUp" : "py-0"}`}>
-            <NavToggle navbarToggleHandler={navbarToggleHandler} navbarOpen={navbarOpen}/>
-            <Logo/>
-            <MainMenu dataMenu={dataMenu} navbarOpen={navbarOpen} navbarToggleHandler={navbarToggleHandler}/>
-            <HeaderTools languageData={languageData}/>
+          <div
+            className={`relative -mx-4 flex items-center justify-between ${
+              sticky ? "animate-fadeInUp" : "py-0"
+            }`}
+          >
+            <NavToggle
+              navbarToggleHandler={navbarToggleHandler}
+              navbarOpen={navbarOpen}
+            />
+            <Logo />
+            <MainMenu
+              dataMenu={dataMenu}
+              navbarOpen={navbarOpen}
+              navbarToggleHandler={navbarToggleHandler}
+            />
+            <HeaderTools languageData={languageData} />
           </div>
-          <div className="w-full h-[6px] flex">
-            <div className="w-[20%] h-[6px] bg-[#fa7305]"></div>
-            <div className="w-[60%] h-[6px] bg-[#09b50c]"></div>
-            <div className="w-[20%] h-[6px] bg-[#b55609]"></div>
+          <div className="flex h-[6px] w-full">
+            <div className="h-[6px] w-[20%] bg-[#fa7305]"></div>
+            <div className="h-[6px] w-[60%] bg-[#09b50c]"></div>
+            <div className="h-[6px] w-[20%] bg-[#b55609]"></div>
           </div>
         </div>
       </header>
