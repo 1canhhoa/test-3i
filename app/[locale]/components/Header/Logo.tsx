@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const Logo = () => {
     return ( 
-        <div className="w-[350px] md:w-[300px] max-w-full px-4 xl:mr-[30px]">
+        <div className="w-[350px] md:w-[300px] max-w-full px-4 xl:mr-[30px] pb-[6px]">
             <Link
                 href="/"
                 className="header-logo inline-block w-full"

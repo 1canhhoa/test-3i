@@ -3,27 +3,66 @@ import Link from "next/link";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from "swiper";
+import { useState, useEffect} from 'react';
 import "swiper/swiper.min.css";
-
-import imagesData from "../../components/Hero/imagesData"
 
 
 const Hero = () => {
+  const [photo, setPhoto] = useState(1);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      change();
+    }, 5000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [photo]);
+
+  const change = () => {
+    if (photo === 4) {
+      setPhoto(1);
+      return;
+    }
+
+    setPhoto((prev) => prev + 1);
+  };
+
+  const returnPhotoURL = () => {
+    switch (photo) {
+      case 1:
+        return "/images/HomeSlides/bia.png";
+      case 2:
+        return "/images/HomeSlides/Tờ bìa mặt sau.jpg";
+      case 3:
+        return "/images/HomeSlides/dacec9d098aa7af423bb.jpg";
+      default:
+        return "/images/HomeSlides/464ebe55ef2f0d71543e.jpg";
+    }
+  };
   return (
     <>
       <section
         id="home"
-        className="relative z-10 h-[800px] overflow-hidden pb-16 xl:pb-[60px] 2xl:pb-[80px] pt-[90px] md:pt-[130px] lg:pt-[60px] home-background"
+        className="relative z-10 h-[100vh] overflow-hidden pb-16 xl:pb-[60px] 2xl:pb-[80px] pt-[90px] md:pt-[130px] lg:pt-[60px] home-background"
+        style={{
+          backgroundImage: `linear-gradient(to bottom, rgba(58, 59, 58, 0.44), rgba(58, 59, 58, 0.68)), url(${returnPhotoURL()})`,
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          width: '100%'
+        }}
       >
-        <div className="container">
+        <div className="container absolute top-[40%] left-[25%]">
           <div className="-mx-4 flex flex-wrap items-center">
             <div className="px-4 lg:w-3/5 w-full">
-              <div className="wow fadeInUp" data-wow-delay=".2s">
-                <p className="mb-5 text-[150px] font-bold leading-tight text-white dark:text-white sm:text-4xl sm:leading-tight md:leading-tight uppercase">
-                3i - Nền tảng quản trị và
+              <div className="wow fadeInUp text-9xl" data-wow-delay=".2s">
+                <p className="mb-5  font-bold leading-tight text-white dark:text-white sm:text-4xl sm:leading-tight md:leading-tight uppercase text-center">
+                <span className="text-9xl">3i</span>
                 </p>
-                <p className="mb-5 text-[150px] font-bold leading-tight text-white dark:text-white sm:text-4xl sm:leading-tight md:leading-tight uppercase">
-                điều hành doanh nghiệp
+                <p className="mb-5 text-9xl  leading-tight text-white dark:text-white sm:text-4xl sm:leading-tight md:leading-tight uppercase text-center">
+                <span className="text-6xl">Nền tảng quản trị và điều hành doanh nghiệp</span>
                 </p>
                 {/* <p className="text-base font-medium !leading-relaxed text-body-color dark:text-white dark:opacity-90"> */}
                 {/* 3i được sáng lập với lý tưởng vận dụng sức sáng tạo của con người về măt công nghệ để phục vụ xã hội những sản phẩm và giải pháp mang tính trí tuệ và hiệu quả cao trong cuộc sống.                </p> */}
@@ -31,7 +70,7 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-            <div className="px-4 lg:w-2/5 w-full">
+            {/* <div className="px-4 lg:w-2/5 w-full">
               <Swiper
                 modules={[Autoplay]}
                 spaceBetween={0}
@@ -54,7 +93,7 @@ const Hero = () => {
                     </SwiperSlide>
                 ))}
               </Swiper>
-            </div>
+            </div> */}
           </div>
         </div>
         {/* <div className="absolute top-0 right-0 z-[-1] opacity-30 lg:opacity-100">

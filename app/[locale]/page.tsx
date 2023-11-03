@@ -16,6 +16,7 @@ import Video from "../[locale]/components/Video";
 import {  ResolvingMetadata  ,type Metadata} from 'next';
 import Logo3i from'@/public/images/logo/logo.png';
 import Platform from "./components/Platform";
+import HomeSlides from "./components/HomePageSlide";
 
 
 type Props = {
@@ -43,8 +44,9 @@ export default function Home() {
   return (
     <>
       <ScrollUp />
-      <Hero />
+      {/* <Hero /> */}
       {/* <AboutSectionOne /> */}
+      <HomeSlides />
       <Platform />
       <AboutSectionOneRTL />
       <Products />

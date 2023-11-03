@@ -20,7 +20,7 @@ const MainMenu = ({dataMenu, navbarOpen, navbarToggleHandler}) => {
     return (
         <nav
             id="navbarCollapse"
-            className={`max-[1200px]:overflow-y-auto max-[1200px]:h-screen bg-nav-mobile xl:bg-none navbar fixed top-[50px] xs:top-[75px] md:top-[65px] lg:top-[65px] right-0 bottom-0 z-30 ease border-body-color/50 bg-white px-4 py-4 duration-300 dark:border-body-color/20 dark:bg-dark xl:visible xl:static xl:w-auto xl:border-none xl:!bg-transparent xl:p-0 xl:opacity-100 ${
+            className={`max-[1200px]:overflow-y-auto w-full max-[1200px]:h-screen bg-nav-mobile xl:bg-none navbar fixed top-[50px] xs:top-[75px] md:top-[65px] lg:top-[65px] right-0 bottom-0 z-30 ease border-body-color/50 bg-white px-4 py-4 duration-300 dark:border-body-color/20 dark:bg-dark xl:visible xl:static xl:w-auto xl:border-none xl:!bg-transparent xl:p-0 xl:opacity-100 ${
             navbarOpen
                 ? "visibility left-[0] opacity-100"
                 : "invisible left-[-100%] opacity-0"
@@ -28,13 +28,13 @@ const MainMenu = ({dataMenu, navbarOpen, navbarToggleHandler}) => {
         >
             <ul className="block xl:flex items-center xl:space-x-[20px]">
             {dataMenu.map((menuItem, index) => (
-                <li key={menuItem.id} className="group relative">
+                <li key={menuItem.id} className="group relative ">
                 {menuItem.title ? (
                     <>
                     {menuItem?.children.length > 0 ? (
                         <span
                         onClick={() => handleSubmenu(index)}
-                        className={`w-full flex items-center justify-between py-3 text-lg xl:text-[12px] 2xl:text-base text-white xl:text-dark group-hover:text-[green] cursor-pointer uppercase font-bold dark:text-white xl:mr-0 xl:inline-flex xl:py-6 xl:px-0`}
+                        className={`w-full flex items-center justify-between text-lg xl:text-[12px] 2xl:text-base text-white xl:text-dark group-hover:text-[green] cursor-pointer uppercase font-bold dark:text-white xl:mr-0 xl:inline-flex xl:py-6 xl:px-0`}
                         >
                         {menuItem.title}
                         <BsChevronDown size={16} className="ml-[7px] font-bold"/>
