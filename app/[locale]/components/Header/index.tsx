@@ -77,17 +77,10 @@ const Header = () => {
             />
             <HeaderTools languageData={languageData} />
           </div>
-<<<<<<< HEAD
-          <div className="w-full h-[6px] flex">
-            <div className="w-[20%] border-[3px] border-[#fa7305]"></div>
-            <div className="w-[60%] border-[3px] border-[#09b50c]"></div>
-            <div className="w-[20%] h-[6px] bg-[#b55609]"></div>
-=======
           <div className="flex h-[6px] w-full">
             <div className="h-[6px] w-[20%] bg-[#fa7305]"></div>
             <div className="h-[6px] w-[60%] bg-[#09b50c]"></div>
             <div className="h-[6px] w-[20%] bg-[#b55609]"></div>
->>>>>>> 04f0a6690bfecbeca850e288c81e955e3cca2a05
           </div>
         </div>
       </header>
