@@ -176,3 +176,8 @@
     background-repeat: no-repeat;
     background-size: cover;
 } */
+
+.slick-prev:before, .slick-next:before {
+  font-size: 50px !important;
+  color: #47d2e4 !important;
+}

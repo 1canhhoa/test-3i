@@ -12,15 +12,15 @@ const Logo = () => {
                 <Image
                     src="/images/logo/logo.png"
                     alt="logo"
-                    width={350}
-                    height={49}
+                    width={400}
+                    height={60}
                     className="w-full dark:hidden"
                 />
                 <Image
                     src="/images/logo/logo.svg"
                     alt="logo"
-                    width={140}
-                    height={30}
+                    width={180}
+                    height={50}
                     className="hidden w-full dark:block"
                 />
             </Link>
