@@ -46,9 +46,9 @@ export default function HomeSlides () {
                     <div className="flex relative">
                         <Image alt="slide" src={Sl3} className="m-auto w-full"></Image>
                         <div className="absolute z-10 top-[15%] left-[50%] capitalize">
-                          <p className="text-[#0279cf] text-7xl">We run all kinds of</p>
-                          <p className="text-[#0279cf] text-7xl">IT Services that</p>
-                          <p className="text-[#0279cf] text-7xl">vow your success</p>
+                          <p className="text-[#0279cf] text-7xl font-bold">We run all kinds of</p>
+                          <p className="text-[#0279cf] text-7xl font-bold">IT Services that</p>
+                          <p className="text-[#0279cf] text-7xl font-bold">vow your success</p>
                           <div className="mt-4">
                             <button className="border-2 border-[#0f7d02] bg-[#0f7d02] p-3 text-white hover:bg-[#735102] hover:border-[#735102] rounded-md">More about us <BsFillArrowRightCircleFill className="inline text-2xl ml-3"/></button>
                             <button className="border-2 border-white bg-white p-3 text-black hover:bg-[#735102] hover:border-[#735102] hover:text-white rounded-md ml-5 min-w-[160px]">Our Services</button>
