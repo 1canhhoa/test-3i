@@ -46,7 +46,7 @@ const MainMenu = ({ dataMenu, navbarOpen, navbarToggleHandler }) => {
                 {menuItem?.children.length > 0 ? (
                   <span
                     onClick={() => handleSubmenu(index)}
-                    className={`flex w-full cursor-pointer items-center justify-between text-sm font-bold uppercase text-white group-hover:text-[green] dark:text-white xl:mr-0 xl:inline-flex xl:py-6 xl:px-0 xl:text-[12px] xl:text-dark 2xl:text-lg`}
+                    className={`flex w-full cursor-pointer items-center justify-between text-sm font-bold uppercase text-white group-hover:text-[green] dark:text-white xl:mr-0 xl:inline-flex xl:py-6 xl:px-0 xl:text-[12px] xl:text-dark 2xl:text-base`}
                   >
                     {menuItem.title}
                     <BsChevronDown size={16} className="ml-[7px] font-bold" />
@@ -54,7 +54,7 @@ const MainMenu = ({ dataMenu, navbarOpen, navbarToggleHandler }) => {
                 ) : (
                   <Link
                     href={`/${handleItemNavBar(menuItem.multiple_language)}`}
-                    className={`pointer flex cursor-pointer py-2 text-base font-bold uppercase text-white group-hover:text-[green] dark:text-white lg:mr-0 lg:inline-flex lg:py-6 lg:px-0 xl:text-[12px] xl:text-dark 2xl:text-lg`}
+                    className={`pointer flex cursor-pointer py-2 text-base font-bold uppercase text-white group-hover:text-[green] dark:text-white lg:mr-0 lg:inline-flex lg:py-6 lg:px-0 xl:text-[12px] xl:text-dark 2xl:text-base`}
                   >
                     {menuItem.title}
                   </Link>
@@ -69,18 +69,18 @@ const MainMenu = ({ dataMenu, navbarOpen, navbarToggleHandler }) => {
                     {menuItem?.children.map((submenuItem, index) => (
                       <div
                         key={submenuItem}
-                        className="flex items-center hover:text-[green] group/submenu"
+                        className="group/submenu flex items-center hover:text-[green]"
                       >
                         <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="22"
-                            height="22"
-                            viewBox="0 0 30 30"
-                            className="fill-current hidden group-hover/submenu:block"
-                          >
-                            <path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8.009 8.009 0 0 1-8 8z" />
-                            <path d="M9.293 8.707 12.586 12l-3.293 3.293 1.414 1.414L15.414 12l-4.707-4.707-1.414 1.414z" />
-                          </svg>
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="22"
+                          height="22"
+                          viewBox="0 0 30 30"
+                          className="hidden fill-current group-hover/submenu:block"
+                        >
+                          <path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8.009 8.009 0 0 1-8 8z" />
+                          <path d="M9.293 8.707 12.586 12l-3.293 3.293 1.414 1.414L15.414 12l-4.707-4.707-1.414 1.414z" />
+                        </svg>
                         <Link
                           onMouseEnter={() => handleMouseEnter(index)}
                           onMouseLeave={handleMouseLeave}
@@ -93,7 +93,7 @@ const MainMenu = ({ dataMenu, navbarOpen, navbarToggleHandler }) => {
                               : String(submenuItem.first_id)
                           }`}
                           key={submenuItem.id}
-                          className="block w-full rounded py-2.5 text-sm font-semibold uppercase text-white hover:text-[green] dark:text-white lg:px-3 xl:text-dark hover:translate-x-1 transition-transform duration-300 ease-in-out"
+                          className="block w-full rounded py-2.5 text-sm font-semibold uppercase text-white transition-transform duration-300 ease-in-out hover:translate-x-1 hover:text-[green] dark:text-white lg:px-3 xl:text-dark"
                         >
                           <p className="w-full"> {submenuItem.title}</p>
                         </Link>
