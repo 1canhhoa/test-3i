@@ -50,10 +50,11 @@ function SamplePrevArrow(props) {
 
 export default function HomeSlides() {
   let settings = {
+    fade: true,
     className: "slider variable-width",
     dots: false,
     infinite: true,
-    speed: 3000,
+    speed: 1500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
