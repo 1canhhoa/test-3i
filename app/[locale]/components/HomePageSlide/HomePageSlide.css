@@ -1,0 +1,25 @@
+.custom-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #fff;
+  padding: 5px;
+  z-index: 200;
+}
+
+.custom-prev {
+  left: 0;
+}
+
+.custom-next {
+  right: 3%;
+}
+.slick-prev::before,
+.slick-next::before {
+  display: none;
+}
+.custom-arrow:hover {
+  color: #fff;
+  display: block;
+}
