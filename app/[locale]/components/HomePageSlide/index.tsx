@@ -21,7 +21,7 @@ function SampleNextArrow(props) {
         zIndex: "100",
         position: "absolute",
         top: "40%",
-        right: "4%",
+        right: "5%",
         font: "30px",
       }}
       onClick={onClick}
@@ -40,7 +40,7 @@ function SamplePrevArrow(props) {
         zIndex: "100",
         position: "absolute",
         top: "40%",
-        left: "0%",
+        left: "1%",
         font: "30px",
       }}
       onClick={onClick}
