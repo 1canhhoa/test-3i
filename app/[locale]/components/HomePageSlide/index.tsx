@@ -1,52 +1,33 @@
 "use client";
 import SectionTitle from "../Common/SectionTitle";
-import Slider from "react-slick";
+import Slider, { CustomArrowProps } from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
-
+import "./HomePageSlide.css";
 import Sl2 from "@/public/images/HomeSlides/bia.png";
 import Sl3 from "@/public/images/HomeSlides/slide2.png";
 // import Sl7 from "@/public/images/HomeSlides/ei.png";
 import Image from "next/image";
+import { SlArrowRight, SlArrowLeft } from "react-icons/sl";
 
-function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{
-        ...style,
-        display: "block",
-        zIndex: "100",
-        position: "absolute",
-        top: "50%",
-        right: "2%",
-        font: "30px",
-      }}
-      onClick={onClick}
-    />
-  );
-}
+const CustomPrevArrow: React.FC<CustomArrowProps> = ({
+  className,
+  onClick,
+}) => (
+  <div className={`${className} custom-arrow custom-prev`} onClick={onClick}>
+    <SlArrowLeft size={60} />
+  </div>
+);
 
-function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{
-        ...style,
-        display: "block",
-        zIndex: "100",
-        position: "absolute",
-        top: "50%",
-        left: "1%",
-        font: "30px",
-      }}
-      onClick={onClick}
-    />
-  );
-}
+const CustomNextArrow: React.FC<CustomArrowProps> = ({
+  className,
+  onClick,
+}) => (
+  <div className={`${className} custom-arrow custom-next`} onClick={onClick}>
+    <SlArrowRight size={60} />
+  </div>
+);
 
 export default function HomeSlides() {
   let settings = {
@@ -56,12 +37,12 @@ export default function HomeSlides() {
     infinite: true,
     speed: 1500,
     slidesToShow: 1,
-    slidesToScroll: 1,
+    // slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 6000,
-    arrows: true,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    autoplaySpeed: 3000,
+    // arrows: true,
+    nextArrow: <CustomNextArrow />,
+    prevArrow: <CustomPrevArrow />,
   };
   const data = [Sl2, Sl3];
   return (
