@@ -19,6 +19,8 @@ module.exports = {
       dark: "#1D2144",
       primary: "#4A6CF7",
       yellow: "#FBB040",
+      orange: "#f39f1e",
+      blue: "DodgerBlue",
       "body-color": "#959CB1",
     },
     screens: {

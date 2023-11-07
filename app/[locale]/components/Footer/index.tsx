@@ -271,7 +271,7 @@ const Footer = () => {
                           className="mb-4 inline-block text-base font-medium  hover:text-primary"
                         >
                           {" "}
-                          Giới thiệu{" "}
+                          Bảng giá{" "}
                         </a>
                       </li>
                     </ul>
