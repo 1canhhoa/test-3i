@@ -178,6 +178,6 @@
 } */
 
 .slick-prev:before, .slick-next:before {
-  font-size: 50px !important;
+  font-size: 100px !important;
   color: #47d2e4 !important;
 }

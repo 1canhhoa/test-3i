@@ -50,52 +50,36 @@ export default function HomeSlides() {
       <section id="features" className="mt-[26px] bg-[green]/[.03] py-16">
         <div style={{ marginBottom: "auto" }}>
           <Slider {...settings}>
-            <div className="relative flex">
-              <Image alt="slide" src={Sl2} className="m-auto w-full"></Image>
-              <div className="absolute top-[20%] left-[50%] z-10 capitalize">
-                <p className="text-shadow-md text-7xl font-bold text-white drop-shadow-2xl">
-                  Keep Business Safe
-                </p>
-                <p className="text-7xl font-bold text-white drop-shadow-2xl">
-                  And Ensure High
-                </p>
-                <p className="text-7xl font-bold text-white drop-shadow-2xl">
-                  Avaibility.
-                </p>
-                <div className="mt-4">
-                  <button className="rounded-md border-2 border-[#0f7d02] bg-[#0f7d02] p-3 text-white hover:border-[#735102] hover:bg-[#735102]">
-                    More about us{" "}
-                    <BsFillArrowRightCircleFill className="ml-3 inline text-2xl" />
-                  </button>
-                  <button className="ml-5 min-w-[160px] rounded-md border-2 border-white bg-white p-3 text-black hover:border-[#735102] hover:bg-[#735102] hover:text-white">
-                    Our Services
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="relative flex">
-              <Image alt="slide" src={Sl3} className="m-auto w-full"></Image>
-              <div className="absolute top-[15%] left-[50%] z-10 capitalize">
-                <p className="text-7xl font-bold text-[#0279cf] drop-shadow-xl">
-                  We run all kinds of
-                </p>
-                <p className="text-7xl font-bold text-[#0279cf] drop-shadow-xl">
-                  IT Services that
-                </p>
-                <p className="text-7xl font-bold text-[#0279cf] drop-shadow-xl">
-                  vow your success
-                </p>
-                <div className="mt-4">
-                  <button className="rounded-md border-2 border-[#0f7d02] bg-[#0f7d02] p-3 text-white hover:border-[#735102] hover:bg-[#735102]">
-                    More about us{" "}
-                    <BsFillArrowRightCircleFill className="ml-3 inline text-2xl" />
-                  </button>
-                  <button className="ml-5 min-w-[160px] rounded-md border-2 border-white bg-white p-3 text-black hover:border-[#735102] hover:bg-[#735102] hover:text-white">
-                    Our Services
-                  </button>
-                </div>
-              </div>
-            </div>
+          <div className="flex relative">
+                        <Image alt="slide" src={Sl2} className="m-auto w-full"></Image>
+                        <div className="absolute z-10 top-[5%] left-[55%] capitalize">
+                          <div className=" shadow-lg  text-gray-200 p-4 ">
+                          <p className="text-white text-7xl font-bold drop-shadow-xl "style={{textShadow: "2px 2px green"}}>Keep Business Safe</p>
+                          <p className="text-white text-7xl font-bold drop-shadow-xl  "style={{textShadow: "2px 2px green"}}>And Ensure High</p>
+                          <p className="text-white text-7xl font-bold drop-shadow-xl   "style={{textShadow: "2px 2px green"}}>Avaibility.</p>
+                          </div>
+                          
+                          <div className="mt-4">
+                            <button className="border-2 border-[#0f7d02] bg-[#0f7d02] p-3 text-white hover:bg-[#735102] hover:border-[#735102] rounded-md">More about us <BsFillArrowRightCircleFill className="inline text-2xl ml-3"/></button>
+                            <button className="border-2 border-white bg-white p-3 text-black hover:bg-[#735102] hover:border-[#735102] hover:text-white rounded-md ml-5 min-w-[160px]">Our Services</button>
+                          </div>
+                        </div>
+                    </div>
+                    <div className="flex relative">
+                        <Image alt="slide" src={Sl3} className="m-auto w-full"></Image>
+                        <div className="absolute z-10 top-[15%] left-[50%] capitalize">
+                        <div className=" shadow-lg  text-gray-200 p-4 ">
+                          <p className="text-[#0279cf] text-7xl font-bold drop-shadow-xl" style={{textShadow: "2px 2px red"}}>We run all kinds of</p>
+                          <p className="text-[#0279cf] text-7xl font-bold drop-shadow-xl" style={{textShadow: "2px 2px red"}}>IT Services that</p>
+                          <p className="text-[#0279cf] text-7xl font-bold drop-shadow-xl" style={{textShadow: "2px 2px red"}}>vow your success</p>
+                          </div>
+                          <div className="mt-4">
+                            <button className="border-2 border-[#0f7d02] bg-[#0f7d02] p-3 text-white hover:bg-[#735102] hover:border-[#735102] rounded-md">More about us <BsFillArrowRightCircleFill className="inline text-2xl ml-3"/></button>
+                            <button className="border-2 border-white bg-white p-3 text-black hover:bg-[#735102] hover:border-[#735102] hover:text-white rounded-md ml-5 min-w-[160px]">Our Services</button>
+                          </div>
+                        </div>
+                    </div>
+
           </Slider>
         </div>
       </section>

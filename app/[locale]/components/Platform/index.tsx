@@ -145,8 +145,7 @@ export default function Platform() {
     speed: 400,
     slidesToShow: 4,
     slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    arrows: false
   };
 
   if (window.innerWidth <= 1068) {
@@ -156,8 +155,7 @@ export default function Platform() {
       speed: 500,
       slidesToShow: 2,
       slidesToScroll: 1,
-      nextArrow: <SampleNextArrow />,
-      prevArrow: <SamplePrevArrow />,
+      
     };
   }
 
