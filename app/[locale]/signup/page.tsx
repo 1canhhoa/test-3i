@@ -1,6 +1,14 @@
 import Link from "next/link";
+import { useForm, SubmitHandler } from "react-hook-form";
 
 const SignupPage = () => {
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   watch,
+  //   formState: { errors },
+  // } = useForm();
+  // const onSubmit = (data) => console.log(data);
   return (
     <>
       <section className="relative z-10 overflow-hidden pt-36 pb-16 md:pb-20 lg:pt-[180px] lg:pb-28">
