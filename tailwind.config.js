@@ -57,6 +57,7 @@ module.exports = {
       },
       backgroundImage: {
         "nav-mobile": "url('/images/menu/map_menu.jpg')",
+        "cta-mobile": "url('/image/HomeSlides/cta-mobile.jpg')"
       },
       keyframes: {
         fadeInDown: {
