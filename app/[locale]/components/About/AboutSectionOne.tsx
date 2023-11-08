@@ -36,10 +36,10 @@ const AboutSectionOne = () => {
                 <div className="flex">
                   <div
                     className="mx-3 w-1/5 max-w-sm overflow-hidden rounded-2xl shadow-2xl "
-                    // style={{
-                    //   borderStyle: "solid",
-                    //   borderColor: "red"
-                    // }}
+                  // style={{
+                  //   borderStyle: "solid",
+                  //   borderColor: "red"
+                  // }}
                   >
                     <div className="px-6 py-4">
                       <div className="mb-2 rounded-lg bg-[#8acb8a] px-6 py-6 text-xl text-3xl font-bold">
@@ -96,10 +96,10 @@ const AboutSectionOne = () => {
                   </div>
                   <div
                     className="mx-3 w-1/5 max-w-sm	 overflow-hidden rounded-2xl shadow-2xl"
-                    // style={{
-                    //   borderStyle: "solid",
-                    //   borderColor: "red"
-                    // }}
+                  // style={{
+                  //   borderStyle: "solid",
+                  //   borderColor: "red"
+                  // }}
                   >
                     <div className="px-6 py-4">
                       <div className="mb-2 rounded-lg bg-[#8acb8a] px-6 py-6 text-xl text-3xl font-bold">
@@ -159,10 +159,10 @@ const AboutSectionOne = () => {
                   </div>
                   <div
                     className="mx-3 w-1/5 max-w-sm overflow-hidden rounded-2xl shadow-2xl "
-                    // style={{
-                    //   borderStyle: "solid",
-                    //   borderColor: "red"
-                    // }}
+                  // style={{
+                  //   borderStyle: "solid",
+                  //   borderColor: "red"
+                  // }}
                   >
                     <div className="px-6 py-4">
                       <div className="mb-2 rounded-lg bg-[#8acb8a] px-6 py-6 text-xl text-3xl font-bold">
@@ -224,10 +224,10 @@ const AboutSectionOne = () => {
                   </div>
                   <div
                     className="mx-3 w-1/5 max-w-sm overflow-hidden rounded-2xl shadow-2xl "
-                    // style={{
-                    //   borderStyle: "solid",
-                    //   borderColor: "red"
-                    // }}
+                  // style={{
+                  //   borderStyle: "solid",
+                  //   borderColor: "red"
+                  // }}
                   >
                     <div className="px-6 py-4">
                       <div className="mb-2 rounded-lg bg-[#8acb8a] px-6 py-6 text-xl text-3xl font-bold">
@@ -286,10 +286,10 @@ const AboutSectionOne = () => {
                   </div>
                   <div
                     className="mx-3 w-1/5 max-w-sm overflow-hidden rounded-2xl shadow-2xl "
-                    // style={{
-                    //   borderStyle: "solid",
-                    //   borderColor: "red"
-                    // }}
+                  // style={{
+                  //   borderStyle: "solid",
+                  //   borderColor: "red"
+                  // }}
                   >
                     <div className="px-6 py-4">
                       <div className="mb-2 rounded-lg bg-[#8acb8a] px-6 py-6 text-xl text-3xl font-bold">
