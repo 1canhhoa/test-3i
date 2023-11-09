@@ -402,34 +402,26 @@ const SignupPage = () => {
                   Tải lên nghiệp vụ và cấu trúc công ty
                 </Button>
               </Upload>
-              {/* <button
-              // onClick={handleImage}
-              type="button"
-              className="duration-80 mb-4  w-[47%] cursor-pointer rounded-md border border-transparent bg-[green] py-3 px-6 text-center text-base font-medium text-white outline-none transition ease-in-out hover:bg-opacity-80 hover:shadow-signUp focus-visible:shadow-none"
-            >
-              Tải lên nghiệp vụ và cấu trúc công ty
-            </button>
-            <input
-              accept="true"
-              type="file"
-              multiple
-              onChange={handleFileChange}
-              className="hidden"
-            /> */}
+              <button
+                // onClick={handleImage}
+                type="button"
+                className="duration-80 mb-4  w-[47%] cursor-pointer rounded-md border border-transparent bg-[green] py-3 px-6 text-center text-base font-medium text-white outline-none transition ease-in-out hover:bg-opacity-80 hover:shadow-signUp focus-visible:shadow-none"
+              >
+                Tải lên nghiệp vụ và cấu trúc công ty
+              </button>
+              <input
+                type="submit"
+                value="ĐĂNG KÝ"
+                className="duration-80 mb-4 max-h-[50px] w-[47%] cursor-pointer rounded-md border border-transparent bg-[green] py-3 px-6 text-center text-base font-medium text-white outline-none transition ease-in-out hover:bg-opacity-80 hover:shadow-signUp focus-visible:shadow-none"
+              />
             </div>
-            <input
-              type="submit"
-              value="ĐĂNG KÝ"
-              className="duration-80 mb-4 max-h-[50px] w-[47%] cursor-pointer rounded-md border border-transparent bg-[green] py-3 px-6 text-center text-base font-medium text-white outline-none transition ease-in-out hover:bg-opacity-80 hover:shadow-signUp focus-visible:shadow-none"
-            />
           </div>
-
           {/* List file */}
-          {/* <ul>
+          <ul>
             {files.map((file) => (
               <li key={file.name}>{file.name}</li>
             ))}
-          </ul> */}
+          </ul>
 
           <p className="text-center text-base font-medium leading-relaxed text-body-color">
             Đảm bảo không có thư rác, vì vậy vui lòng không gửi bất kỳ thư rác

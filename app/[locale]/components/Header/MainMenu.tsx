@@ -28,11 +28,10 @@ const MainMenu = ({ dataMenu, navbarOpen, navbarToggleHandler }) => {
   return (
     <nav
       id="navbarCollapse"
-      className={`navbar ease fixed top-[50px] right-0 bottom-0 z-30 w-full border-body-color/50 bg-white bg-nav-mobile px-4 py-4 duration-300 dark:border-body-color/20 dark:bg-dark max-[1200px]:h-screen max-[1200px]:overflow-y-auto xs:top-[75px] md:top-[65px] lg:top-[65px] xl:visible xl:static xl:w-auto xl:border-none xl:!bg-transparent xl:bg-none xl:p-0 xl:opacity-100 ${
-        navbarOpen
-          ? "visibility left-[0] opacity-100"
-          : "invisible left-[-100%] opacity-0"
-      }`}
+      className={`navbar ease fixed top-[50px] right-0 bottom-0 z-30 w-full border-body-color/50 bg-white bg-nav-mobile px-4 py-4 duration-300 dark:border-body-color/20 dark:bg-dark max-[1200px]:h-screen max-[1200px]:overflow-y-auto xs:top-[75px] md:top-[65px] lg:top-[65px] xl:visible xl:static xl:w-auto xl:border-none xl:!bg-transparent xl:bg-none xl:p-0 xl:opacity-100 ${navbarOpen
+        ? "visibility left-[0] opacity-100"
+        : "invisible left-[-100%] opacity-0"
+        }`}
     >
       <ul className="block items-center xl:flex xl:space-x-[20px]">
         {dataMenu.map((menuItem, index) => (
@@ -62,9 +61,8 @@ const MainMenu = ({ dataMenu, navbarOpen, navbarToggleHandler }) => {
                 {/* Phần subnav */}
                 {menuItem?.children.length > 0 && (
                   <div
-                    className={`submenu relative top-full left-0  rounded-b-md bg-none pl-[20px] transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark xl:invisible xl:absolute xl:top-[110%] xl:block xl:min-w-[400px] xl:bg-white xl:p-4 xl:opacity-0 xl:shadow-lg xl:group-hover:visible xl:group-hover:top-full ${
-                      openIndex === index ? "block" : "hidden"
-                    }`}
+                    className={`submenu relative top-full left-0  rounded-b-md bg-none pl-[20px] transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark xl:invisible xl:absolute xl:top-[110%] xl:block xl:min-w-[400px] xl:bg-white xl:p-4 xl:opacity-0 xl:shadow-lg xl:group-hover:visible xl:group-hover:top-full ${openIndex === index ? "block" : "hidden"
+                      }`}
                   >
                     {menuItem?.children.map((submenuItem, index) => (
                       <div
@@ -87,11 +85,10 @@ const MainMenu = ({ dataMenu, navbarOpen, navbarToggleHandler }) => {
                           onClick={navbarToggleHandler}
                           href={`/${handleItemNavBar(
                             menuItem.multiple_language
-                          )}/${
-                            submenuItem.first_id === -1
-                              ? String(submenuItem.id)
-                              : String(submenuItem.first_id)
-                          }`}
+                          )}/${submenuItem.first_id === -1
+                            ? String(submenuItem.id)
+                            : String(submenuItem.first_id)
+                            }`}
                           key={submenuItem.id}
                           className="block w-full rounded py-2.5 text-sm font-semibold uppercase text-white transition-transform duration-300 ease-in-out hover:translate-x-1 hover:text-[green] dark:text-white lg:px-3 xl:text-dark"
                         >
