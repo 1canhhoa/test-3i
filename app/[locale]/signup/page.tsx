@@ -4,6 +4,9 @@ import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useRef, useState } from "react";
+import { UploadOutlined } from "@ant-design/icons";
+import { Button, Upload } from "antd";
+import type { UploadFile } from "antd/es/upload/interface";
 
 const schema = yup.object().shape({
   companyAddress: yup.string().required("Địa chỉ công ty không được để trống"),
@@ -19,6 +22,22 @@ interface FormData {
   note: string;
   companyName: string;
 }
+const fileList: UploadFile[] = [
+  {
+    uid: "-1",
+    name: "yyy.png",
+    status: "done",
+    url: "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
+    thumbUrl:
+      "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
+  },
+];
+interface FileData {
+  name: string;
+  size: number;
+  type: string;
+  file: File;
+}
 
 const SignupPage = () => {
   const {
@@ -29,12 +48,15 @@ const SignupPage = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
+
   const onSignUp = (data: FormData) => {
     // Handle form submission
     console.log(data);
   };
 
   const [image, setImage] = useState<File>();
+  const [files, setFiles] = useState<FileData[]>([]);
+
   const refInput = useRef<HTMLInputElement>(null);
   const handleImage = () => {
     refInput.current?.click();
@@ -52,7 +74,19 @@ const SignupPage = () => {
       // onChange(InputFileItem as File);
     }
   };
-  console.log(errors);
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputFiles = e.target.files;
+    if (inputFiles) {
+      const newFiles: FileData[] = Array.from(inputFiles).map((file) => ({
+        name: file.name,
+        size: file.size,
+        type: file.type,
+        file: file,
+      }));
+      setFiles([...files, ...newFiles]);
+    }
+  };
+
   return (
     <>
       {/* <section className="relative z-10 overflow-hidden pt-36 pb-16 md:pb-20 lg:pt-[180px] lg:pb-28">
@@ -330,40 +364,73 @@ const SignupPage = () => {
             className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium  placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
           />
           <div className="flex justify-between">
-            <input
-              ref={refInput}
-              type="file"
-              className="hidden"
-              accept=".jpg,.jeq,.png"
-              onChange={handleChangeImage}
-            />
-            <button
-              onClick={handleImage}
-              type="button"
-              className="duration-80 mb-4 w-[47%] cursor-pointer rounded-md border border-transparent bg-[green] py-3 px-6 text-center text-base font-medium text-white outline-none transition ease-in-out hover:bg-opacity-80 hover:shadow-signUp focus-visible:shadow-none"
-            >
-              Tải lên cấu trúc công ty
-            </button>
-            <input
-              ref={refInput}
-              type="file"
-              className="hidden"
-              accept=".jpg,.jeq,.png"
-              onChange={handleChangeImage}
-            />
-            <button
-              onClick={handleImage}
+            <div className="w-47%">
+              <input
+                ref={refInput}
+                type="file"
+                className="hidden"
+                accept=".jpg,.jeq,.png"
+                onChange={handleChangeImage}
+              />
+              <button
+                onClick={handleImage}
+                type="button"
+                className="duration-80 mb-4 w-full cursor-pointer rounded-md border border-transparent bg-[green] py-3 px-6 text-center text-base font-medium text-white outline-none transition ease-in-out hover:bg-opacity-80 hover:shadow-signUp focus-visible:shadow-none"
+              >
+                Tải xuống nghiệp vụ và cấu trúc công ty
+              </button>
+              <input
+                ref={refInput}
+                type="file"
+                className="hidden"
+                accept=".jpg,.jeq,.png"
+                onChange={handleChangeImage}
+              />
+              <Upload
+                accept=".doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                maxCount={2}
+                className="upload-list-inline w-full"
+                action="https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188"
+                listType="picture"
+                defaultFileList={[...fileList]}
+                // onChange={handleFileChange}
+              >
+                <Button
+                  icon={<UploadOutlined />}
+                  className="w-full bg-[green] font-medium text-white hover:text-white"
+                >
+                  Tải lên nghiệp vụ và cấu trúc công ty
+                </Button>
+              </Upload>
+              {/* <button
+              // onClick={handleImage}
               type="button"
               className="duration-80 mb-4  w-[47%] cursor-pointer rounded-md border border-transparent bg-[green] py-3 px-6 text-center text-base font-medium text-white outline-none transition ease-in-out hover:bg-opacity-80 hover:shadow-signUp focus-visible:shadow-none"
             >
-              Tải lên nghiệp vụ công
+              Tải lên nghiệp vụ và cấu trúc công ty
             </button>
+            <input
+              accept="true"
+              type="file"
+              multiple
+              onChange={handleFileChange}
+              className="hidden"
+            /> */}
+            </div>
+            <input
+              type="submit"
+              value="ĐĂNG KÝ"
+              className="duration-80 mb-4 max-h-[50px] w-[47%] cursor-pointer rounded-md border border-transparent bg-[green] py-3 px-6 text-center text-base font-medium text-white outline-none transition ease-in-out hover:bg-opacity-80 hover:shadow-signUp focus-visible:shadow-none"
+            />
           </div>
-          <input
-            type="submit"
-            value="Đăng ký"
-            className="duration-80 mb-4 w-full cursor-pointer rounded-md border border-transparent bg-[green] py-3 px-6 text-center text-base font-medium text-white outline-none transition ease-in-out hover:bg-opacity-80 hover:shadow-signUp focus-visible:shadow-none"
-          />
+
+          {/* List file */}
+          {/* <ul>
+            {files.map((file) => (
+              <li key={file.name}>{file.name}</li>
+            ))}
+          </ul> */}
+
           <p className="text-center text-base font-medium leading-relaxed text-body-color">
             Đảm bảo không có thư rác, vì vậy vui lòng không gửi bất kỳ thư rác
             nào.
