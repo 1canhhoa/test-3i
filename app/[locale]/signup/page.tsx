@@ -5,8 +5,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useRef, useState } from "react";
 import { UploadOutlined } from "@ant-design/icons";
-import { Button, Upload } from "antd";
-import type { UploadFile } from "antd/es/upload/interface";
+import { Button, Upload, message } from "antd";
+import type { UploadFile, UploadProps } from "antd/es/upload/interface";
+import "./signup.css";
+import { AiOutlineDownload } from "react-icons/ai";
 
 const schema = yup.object().shape({
   companyAddress: yup.string().required("Địa chỉ công ty không được để trống"),
@@ -85,6 +87,37 @@ const SignupPage = () => {
       }));
       setFiles([...files, ...newFiles]);
     }
+  };
+
+  const props: UploadProps = {
+    action: "https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188",
+    onChange({ file, fileList }) {
+      if (file.status !== "uploading") {
+        console.log(file, fileList);
+      }
+    },
+    defaultFileList: [
+      {
+        uid: "1",
+        name: "xxx.png",
+        status: "uploading",
+        url: "http://www.baidu.com/xxx.png",
+        percent: 33,
+      },
+      {
+        uid: "2",
+        name: "yyy.png",
+        status: "done",
+        url: "http://www.baidu.com/yyy.png",
+      },
+      {
+        uid: "3",
+        name: "zzz.png",
+        status: "error",
+        response: "Server Error 500", // custom error message to show
+        url: "http://www.baidu.com/zzz.png",
+      },
+    ],
   };
 
   return (
@@ -363,65 +396,44 @@ const SignupPage = () => {
             placeholder="Ghi Chú"
             className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium  placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
           />
-          <div className="flex justify-between">
-            <div className="w-47%">
-              <input
-                ref={refInput}
-                type="file"
-                className="hidden"
-                accept=".jpg,.jeq,.png"
-                onChange={handleChangeImage}
-              />
-              <button
-                onClick={handleImage}
-                type="button"
-                className="duration-80 mb-4 w-full cursor-pointer rounded-md border border-transparent bg-[green] py-3 px-6 text-center text-base font-medium text-white outline-none transition ease-in-out hover:bg-opacity-80 hover:shadow-signUp focus-visible:shadow-none"
-              >
-                Tải xuống nghiệp vụ và cấu trúc công ty
-              </button>
-              <input
-                ref={refInput}
-                type="file"
-                className="hidden"
-                accept=".jpg,.jeq,.png"
-                onChange={handleChangeImage}
-              />
-              <Upload
-                accept=".doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                maxCount={2}
-                className="upload-list-inline w-full"
-                action="https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188"
-                listType="picture"
-                defaultFileList={[...fileList]}
-                // onChange={handleFileChange}
-              >
-                <Button
-                  icon={<UploadOutlined />}
-                  className="w-full bg-[green] font-medium text-white hover:text-white"
+          <div className="">
+            <div className=" mb-4 flex justify-between">
+              <div className="w-[47%]">
+                <input
+                  ref={refInput}
+                  type="file"
+                  className="hidden"
+                  accept=".jpg,.jeq,.png"
+                  onChange={handleChangeImage}
+                />
+                <button
+                  onClick={handleImage}
+                  type="button"
+                  className="duration-80 mb-4 flex min-h-[50px] w-full cursor-pointer items-center justify-center rounded-md border border-transparent bg-[green] py-3 px-6 text-center text-base font-medium text-white outline-none transition ease-in-out hover:bg-opacity-80 hover:text-[#3E96E8] hover:shadow-signUp focus-visible:shadow-none"
                 >
-                  Tải lên nghiệp vụ và cấu trúc công ty
-                </Button>
-              </Upload>
-              <button
-                // onClick={handleImage}
-                type="button"
-                className="duration-80 mb-4  w-[47%] cursor-pointer rounded-md border border-transparent bg-[green] py-3 px-6 text-center text-base font-medium text-white outline-none transition ease-in-out hover:bg-opacity-80 hover:shadow-signUp focus-visible:shadow-none"
-              >
-                Tải lên nghiệp vụ và cấu trúc công ty
-              </button>
+                  <AiOutlineDownload className="mr-2 text-lg" />
+                  Tải xuống nghiệp vụ và cấu trúc công ty
+                </button>
+              </div>
+              <div className="w-[47%]">
+                <Upload {...props}>
+                  <Button
+                    icon={<UploadOutlined />}
+                    className="mb-4 min-h-[50px] w-full bg-[green] py-3 px-6 text-base font-medium text-white hover:bg-opacity-80 hover:text-white"
+                  >
+                    Tải lên nghiệp vụ và cấu trúc công ty
+                  </Button>
+                </Upload>
+              </div>
+            </div>
+            <div className="w-full">
               <input
                 type="submit"
                 value="ĐĂNG KÝ"
-                className="duration-80 mb-4 max-h-[50px] w-[47%] cursor-pointer rounded-md border border-transparent bg-[green] py-3 px-6 text-center text-base font-medium text-white outline-none transition ease-in-out hover:bg-opacity-80 hover:shadow-signUp focus-visible:shadow-none"
+                className="duration-80 mb-4 max-h-[50px] w-full cursor-pointer rounded-md border border-transparent bg-[green] py-3 px-6 text-center text-base font-medium text-white outline-none transition ease-in-out hover:bg-opacity-80 hover:shadow-signUp focus-visible:shadow-none"
               />
             </div>
           </div>
-          {/* List file */}
-          <ul>
-            {files.map((file) => (
-              <li key={file.name}>{file.name}</li>
-            ))}
-          </ul>
 
           <p className="text-center text-base font-medium leading-relaxed text-body-color">
             Đảm bảo không có thư rác, vì vậy vui lòng không gửi bất kỳ thư rác
