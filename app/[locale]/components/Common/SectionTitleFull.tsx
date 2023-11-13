@@ -20,10 +20,10 @@ const SectionTitleFull = ({
         className={`wow fadeInUp w-full ${center ? "mx-auto text-center" : ""}`}
         data-wow-delay=".1s"
       >
-        <h2 className={`mb-4 text-3xl font-bold !leading-tight ${textHeading}`}>
+        <h2 className={`mb-4 text-6xl font-bold mt-8 text-green !leading-tight ${textHeading}`}>
           {title}
         </h2>
-        <p className={`text-base !leading-relaxed text-body-color ${textParams}`}>
+        <p className={`text-3xl !leading-relaxed text-body-color ${textParams}`}>
           {paragraph}
         </p>
       </div>

@@ -25,7 +25,7 @@ const SectionTitle = ({
         <h2 className={`mb-4 text-3xl font-bold !leading-tight ${textHeading}`}>
           {title}
         </h2>
-        
+
         <p className={`text-base !leading-relaxed text-body-color ${textParams}`}>
           {paragraph}
         </p>

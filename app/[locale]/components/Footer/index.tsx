@@ -16,7 +16,7 @@ const Footer = () => {
         className="wow fadeInUp relative z-10 mt-12 bg-[green] bg-opacity-5 pt-16 md:pt-20 "
         data-wow-delay=".1s"
       >
-        <div className="container">
+        <div className="container mb-2">
           <div className="-mx-4 flex flex-wrap lg:px-[100px]">
             <div className="mb-12 w-full lg:mb-2">
               <Link href="/" className="mb-8 inline-block max-w-[400px]">
@@ -36,7 +36,7 @@ const Footer = () => {
                 />
               </Link>
             </div>
-            <div className="w-full px-4 md:w-1/2 lg:w-5/12 xl:w-5/12">
+            <div className="w-full px-4 md:w-1/2 lg:w-5/12 xl:w-3/12">
               <div className="mb-12 max-w-[400px] lg:mb-16">
                 <h2 className="mb-[20px] text-[1.2rem] font-bold uppercase">
                   Vị trí các cơ sở
@@ -68,8 +68,8 @@ const Footer = () => {
                 </ul>
               </div>
             </div>
-            <div className="w-full px-4 md:w-1/2 lg:w-7/12 xl:w-7/12">
-              <div className="mb-[20px] w-full xl:px-12">
+            <div className="w-full px-4 md:w-1/2 lg:w-7/12 xl:w-5/12">
+              <div className="mb-[20px] w-full ">
                 <div className="px-4">
                   <h2 className="mb-[10px] text-[1.2rem] font-bold uppercase">
                     Liên hệ với chúng tôi
@@ -166,10 +166,10 @@ const Footer = () => {
                   </a>
                 </div>
               </div>
-              <div className="flex w-full xl:px-12">
-                <div className="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-3/12 xl:w-3/12">
+              <div className="flex w-full">
+                <div className="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-3/12 xl:w-4/12">
                   <div className="mb-12 lg:mb-16">
-                    <h2 className="mb-6 text-lg font-bold  text-black dark:text-white">
+                    <h2 className="mb-6 text-lg font-bold text-black dark:text-white xl:h-[46px]">
                       Liên kết nhanh
                     </h2>
                     <ul>
@@ -206,7 +206,7 @@ const Footer = () => {
 
                 <div className="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-4/12 xl:w-4/12">
                   <div className="mb-12 lg:mb-16">
-                    <h2 className="mb-6 text-lg font-bold  text-black dark:text-white">
+                    <h2 className="mb-6 text-lg font-bold  text-black dark:text-white xl:h-[46px]">
                       Sản phẩm & dịch vụ
                     </h2>
                     <ul>
@@ -243,7 +243,7 @@ const Footer = () => {
 
                 <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-4/12">
                   <div className="mb-12 lg:mb-16">
-                    <h2 className="mb-6 text-lg font-bold  text-black dark:text-white">
+                    <h2 className="mb-6 text-lg font-bold  text-black dark:text-white xl:h-[46px]">
                       Hỗ trợ
                     </h2>
                     <ul>
@@ -271,13 +271,78 @@ const Footer = () => {
                           className="mb-4 inline-block text-base font-medium  hover:text-primary"
                         >
                           {" "}
-                          Giới thiệu{" "}
+                          Bảng giá{" "}
                         </a>
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
+            </div>
+            <div className="lg:w-12/12 w-full px-4 md:w-full xl:w-4/12">
+              <h2 className="mb-3 text-[20px] font-bold uppercase text-black dark:text-white sm:text-3xl lg:text-2xl xl:text-[1.2rem]">
+                Cần giúp đỡ? Mở một vé
+              </h2>
+              <p className="mb-2 text-base font-medium text-body-color">
+                Nhóm hỗ trợ của chúng tôi sẽ liên hệ lại với bạn càng sớm càng
+                tốt qua email.
+              </p>
+              <form>
+                <div className="-mx-4 ">
+                  <div className="w-full px-4 md:w-full">
+                    <div className="mb-2.5">
+                      <label
+                        htmlFor="name"
+                        className="mb-3 block text-sm font-medium text-dark dark:text-white"
+                      >
+                        Họ và tên
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="Họ và tên"
+                        className="w-full rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
+                      />
+                    </div>
+                  </div>
+                  <div className="w-full px-4 md:w-full">
+                    <div className="mb-2.5">
+                      <label
+                        htmlFor="email"
+                        className="mb-3 block text-sm font-medium text-dark dark:text-white"
+                      >
+                        Địa chỉ email
+                      </label>
+                      <input
+                        type="email"
+                        placeholder="Địa chỉ email"
+                        className="w-full rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="w-full px-4">
+                    <div className="mb-2.5">
+                      <label
+                        htmlFor="message"
+                        className="mb-3 block text-sm font-medium text-dark dark:text-white"
+                      >
+                        Vấn đề của bạn
+                      </label>
+                      <textarea
+                        name="message"
+                        rows={5}
+                        placeholder="Vấn đề của bạn"
+                        className="w-full resize-none rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div className="w-full px-4 text-center">
+                    <button className="rounded-md bg-[green] py-4 px-9 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp">
+                      Gửi yêu cầu
+                    </button>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
