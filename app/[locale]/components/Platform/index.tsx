@@ -100,7 +100,8 @@ export default function Platform () {
         infinite: true,
         speed: 500,
         slidesToShow: 4,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        arrows: false
     };
 
     if (window.innerWidth <= 1068){
@@ -109,7 +110,8 @@ export default function Platform () {
             infinite: true,
             speed: 500,
             slidesToShow: 2,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            arrows: false
         }
     }
 
