@@ -29,17 +29,18 @@ export default function RootLayout({
   params?:any
 }) {
 
-  const locale = useLocale();
+  // const locale = useLocale();
 
 
-  if (params.locale !== locale) {
-    notFound();
-  }
+  // if (params.locale !== locale) {
+  //   notFound();
+  // }
 
-  const t = useTranslations('Index');
+  // const t = useTranslations('Index');
 
   return (
-    <html lang={locale}>
+    // <html lang={locale}>
+    <html>
       {/*
         <head /> will contain the components returned by the nearest parent
         head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head

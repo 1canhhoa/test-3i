@@ -51,7 +51,7 @@ export default function HomeSlides() {
         <div style={{ marginBottom: "auto" }}>
           <Slider {...settings}>
           <div className="flex relative">
-                        <Image alt="slide" src={Sl2} className="m-auto w-full"></Image>
+                        <Image alt="slide" src={Sl2} className="m-auto" width={4903} height={882}></Image>
                         <div className="absolute z-10 top-[5%] left-[55%] capitalize">
                           <div className=" shadow-lg  text-gray-200 p-4 ">
                           <p className="text-white text-7xl font-bold drop-shadow-xl "style={{textShadow: "2px 2px green"}}>Keep Business Safe</p>
@@ -66,7 +66,7 @@ export default function HomeSlides() {
                         </div>
                     </div>
                     <div className="flex relative">
-                        <Image alt="slide" src={Sl3} className="m-auto w-full"></Image>
+                        <Image alt="slide" src={Sl3} className="m-auto" width={4903} height={882}></Image>
                         <div className="absolute z-10 top-[15%] left-[50%] capitalize">
                         <div className=" shadow-lg  text-gray-200 p-4 ">
                           <p className="text-[#0279cf] text-7xl font-bold drop-shadow-xl" style={{textShadow: "2px 2px red"}}>We run all kinds of</p>

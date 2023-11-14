@@ -27,7 +27,7 @@ interface FileProps {
 }
 
 const ProductSystemItem: React.FC<ProductSystemItemProps> = ({ data }) => {
-  console.log('system child: ', data);
+  // console.log('system child: ', data);
   const [listCmsItem, setListCmsItem] = useState<any>({});
   const [selectedItemId, setSelectedItemId] = useState(null);
 

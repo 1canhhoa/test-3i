@@ -13,8 +13,8 @@ import Link from 'next/link'
 const LanguageToggle = ( languageData) => {
   const [openDropDown, setOpenDropDown] = useState(false);
 
-  const pram=useParams();
-  const pathname=usePathname();
+  // const pram=useParams();
+  // const pathname=usePathname();
 
   return (
     <div className="relative">
