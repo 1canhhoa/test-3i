@@ -9,7 +9,7 @@ import { Button, Upload, message } from "antd";
 import type { UploadFile, UploadProps } from "antd/es/upload/interface";
 import "./signup.css";
 import { AiOutlineDownload } from "react-icons/ai";
-
+import * as XLSX from 'xlsx';
 const schema = yup.object().shape({
   companyAddress: yup.string().required("Địa chỉ công ty không được để trống"),
   phoneNumber: yup.number().required("Số điện thoại không được để trống"),
@@ -89,37 +89,55 @@ const SignupPage = () => {
     }
   };
 
-  const props: UploadProps = {
-    action: "https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188",
-    onChange({ file, fileList }) {
-      if (file.status !== "uploading") {
-        console.log(file, fileList);
-      }
-    },
-    defaultFileList: [
-      {
-        uid: "1",
-        name: "xxx.png",
-        status: "uploading",
-        url: "http://www.baidu.com/xxx.png",
-        percent: 33,
-      },
-      {
-        uid: "2",
-        name: "yyy.png",
-        status: "done",
-        url: "http://www.baidu.com/yyy.png",
-      },
-      {
-        uid: "3",
-        name: "zzz.png",
-        status: "error",
-        response: "Server Error 500", // custom error message to show
-        url: "http://www.baidu.com/zzz.png",
-      },
-    ],
-  };
+  // const props: UploadProps = {
+  //   action: "https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188",
+  //   onChange({ file, fileList }) {
+  //     if (file.status !== "uploading") {
+  //       console.log(file, fileList);
+  //     }
+  //   },
+  //   defaultFileList: [
+  //     {
+  //       uid: "1",
+  //       name: "xxx.png",
+  //       status: "uploading",
+  //       url: "http://www.baidu.com/xxx.png",
+  //       percent: 33,
+  //     },
+  //     {
+  //       uid: "2",
+  //       name: "yyy.png",
+  //       status: "done",
+  //       url: "http://www.baidu.com/yyy.png",
+  //     },
+  //     {
+  //       uid: "3",
+  //       name: "zzz.png",
+  //       status: "error",
+  //       response: "Server Error 500", // custom error message to show
+  //       url: "http://www.baidu.com/zzz.png",
+  //     },
+  //   ],
+  // };
+  const [jsonData , setJsonData] = useState({})
+  console.log('jsonData: ',jsonData)
 
+  const customRequest = ({ file }) => {
+    const reader = new FileReader();
+    reader.readAsBinaryString(file);
+    reader.onload = (e) => {
+      const data = e.target.result;
+      const workbook = XLSX.read(data, { type: "binary" });
+      const jsonData = {}
+      workbook.SheetNames.forEach((sheetName) => {
+        const worksheet = workbook.Sheets[sheetName];
+        const sheetData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+        const filteredSheetData = sheetData.filter((row) => row.length > 0);
+        jsonData[sheetName] = filteredSheetData
+      });
+      setJsonData(jsonData)
+    };
+  };
   return (
     <>
       {/* <section className="relative z-10 overflow-hidden pt-36 pb-16 md:pb-20 lg:pt-[180px] lg:pb-28">
@@ -416,7 +434,7 @@ const SignupPage = () => {
                 </button>
               </div>
               <div className="w-[47%]">
-                <Upload {...props}>
+                <Upload customRequest={customRequest}>
                   <Button
                     icon={<UploadOutlined />}
                     className="mb-4 min-h-[50px] w-full bg-[green] py-3 px-6 text-base font-medium text-white hover:bg-opacity-80 hover:text-white"
