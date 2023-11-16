@@ -1,77 +1,12 @@
 "use client";
-import { cookies } from "next/dist/client/components/headers";
+
 import React, { useContext, useRef, useState, useMemo } from "react";
 import { NextResponse, NextRequest } from "next/server";
-import { getCookie, getCookies, setCookie } from "cookies-next";
+
 const NewsLatterBox = () => {
   // const [file, setFile] = useState<File>()
 
   const [image, setImage] = useState<File>();
-  const [form, setForm] = useState([]);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [tel, setTel] = useState("");
-  const [note, setNote] = useState("");
-  const [address, setAddress] = useState("");
-  const [id, setId] = useState(Date.now());
-
-  const writeName = (event) => {
-    setName(event.target.value);
-  };
-
-  const writeEmail = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const writeTel = (event) => {
-    setTel(event.target.value);
-  };
-
-  const writeNote = (event) => {
-    setNote(event.target.value);
-  };
-
-  const writeAddress = (event) => {
-    setAddress(event.target.value);
-  };
-
-  const submitForm = (event) => {
-    event.preventDefault();
-    const nextForm = [...form];
-    nextForm.splice(0, 0, {
-      id: id,
-      name: name,
-      address: address,
-      tel: tel,
-      note: note,
-      email: email,
-    });
-    setForm(
-      nextForm.map((form) => {
-        return <div>{form}</div>;
-      })
-    );
-    setName("");
-    setAddress("");
-    setEmail("");
-    setNote("");
-    setTel("");
-    // cookies().set(
-    //   "name",
-    // "value"
-    // name: name,
-    // value: address,
-    // httpOnly: true,
-    // path: "/",
-    // );
-    console.log(nextForm);
-    webCookie(nextForm);
-  };
-
-  const webCookie = (options) => {
-    console.log(setCookie(id, options));
-    // console.log(getCookie("key", options));
-  };
 
   const refInput = useRef<HTMLInputElement>(null);
 
@@ -137,40 +72,30 @@ const NewsLatterBox = () => {
       </p>
       <form>
         <input
-          onChange={writeName}
-          value={name}
           type="text"
           name="name"
           placeholder="Tên Công Ty"
           className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium text-body-color placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
         />
         <input
-          onChange={writeEmail}
-          value={email}
           type="email"
           name="email"
           placeholder="Địa Chỉ Email"
           className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium text-body-color placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
         />
         <input
-          onChange={writeAddress}
-          value={address}
           type="text"
           name="Địa Chỉ Công Ty"
           placeholder="Địa Chỉ Công Ty"
           className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium text-body-color placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
         />
         <input
-          onChange={writeTel}
-          value={tel}
           type="number"
           name="Số Điện Thoại"
           placeholder="Số Điện Thoại"
           className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium text-body-color placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
         />
         <input
-          onChange={writeNote}
-          value={note}
           type="text"
           name="Ghi Chú"
           placeholder="Ghi Chú"
@@ -207,7 +132,6 @@ const NewsLatterBox = () => {
           </button>
         </div>
         <button
-          onClick={submitForm}
           value="Subscribe"
           className="duration-80 mb-4 w-full cursor-pointer rounded-md border border-transparent bg-[green] py-3 px-6 text-center text-base font-medium text-white outline-none transition ease-in-out hover:bg-opacity-80 hover:shadow-signUp focus-visible:shadow-none"
         >
