@@ -44,13 +44,11 @@ interface FileData {
 }
 interface Form {
   name: string;
-  address: string;
+  email: string;
   tel: string;
   note: string;
-  email: string;
-  id: Date;
+  address: string;
 }
-
 const SignupPage = () => {
   const {
     control,
@@ -63,76 +61,32 @@ const SignupPage = () => {
 
   const onSignUp = (data: FormData) => {
     // Handle form submission
-
+    // submitForm(form);
     console.log(data);
   };
 
   const [image, setImage] = useState<File>();
   const [files, setFiles] = useState<FileData[]>([]);
-  const [form, setForm] = useState<Form[]>([]);
-  // const [name, setName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [tel, setTel] = useState("");
-  // const [note, setNote] = useState("");
-  // const [address, setAddress] = useState("");
-  // const [id, setId] = useState(Date.now());
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    tel: "",
+    address: "",
+    note: "",
+  });
 
-  // const writeName = (event, data: Form) => {
-  //   setForm(event.target.data.name);
-  // };
+  const submitForm = (data) => {
+    const form = {
+      name: data.name,
+      email: data.email,
+      tel: data.phone,
+      address: data.address,
+      note: data.note,
+    };
 
-  // const writeEmail = (event) => {
-  //   setEmail(event.target.value);
-  // };
-
-  // const writeTel = (event) => {
-  //   setTel(event.target.value);
-  // };
-
-  // const writeNote = (event) => {
-  //   setNote(event.target.value);
-  // };
-
-  // const writeAddress = (event) => {
-  //   setAddress(event.target.value);
-  // };
-
-  // const webCookie = (options) => {
-  //   console.log(setCookie(`${id}`, options));
-  //   // console.log(getCookie("key", options));
-  // };
-  // const submitForm = (data: Form, event) => {
-  //   event.preventDefault();
-  //   const nextForm = [...data];
-  //   nextForm.splice(0, 0, {
-  //     id: id,
-  //     name: name,
-  //     address: address,
-  //     tel: tel,
-  //     note: note,
-  //     email: email,
-  //   });
-  //   setForm(
-  //     nextForm.map((form) => {
-  //       return <div>{form}</div>;
-  //     })
-  //   );
-  //   setName("");
-  //   setAddress("");
-  //   setEmail("");
-  //   setNote("");
-  //   setTel("");
-  //   webCookie(nextForm);
-  //   // cookies().set(
-  //   //   "name",
-  //   // "value"
-  //   // name: name,
-  //   // value: address,
-  //   // httpOnly: true,
-  //   // path: "/",
-  //   // );
-  //   console.log(nextForm);
-  // };
+    setForm(form);
+    console.log(form);
+  };
 
   const refInput = useRef<HTMLInputElement>(null);
   const handleImage = () => {
@@ -449,13 +403,12 @@ const SignupPage = () => {
         <p className="mb-11 border-b border-body-color border-opacity-25 pb-11 text-base font-medium leading-relaxed text-body-color dark:border-white dark:border-opacity-25">
           Smartwork - Nâng tầm doanh nghiệp của bạn
         </p>
-        <form onSubmit={handleSubmit(onSignUp)}>
+        <form onSubmit={() => handleSubmit(onSignUp)}>
           <input
             {...register("companyName")}
             type="text"
             // name="name"
-            // onChange={writeName}
-            // value={name}
+
             placeholder="Tên Công Ty"
             className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium  placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
           />
@@ -464,8 +417,7 @@ const SignupPage = () => {
             {...register("email")}
             type="email"
             // onChange={writeEmail}
-            // value={email}
-            // name="email"
+
             placeholder="Địa Chỉ Email"
             className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium  placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
           />
@@ -474,8 +426,6 @@ const SignupPage = () => {
           )}
           <input
             {...register("companyAddress")}
-            // onChange={writeAddress}
-            // value={address}
             type="text"
             // name="Địa Chỉ Công Ty"
             placeholder="Địa Chỉ Công Ty"
@@ -484,8 +434,6 @@ const SignupPage = () => {
           <input
             type="text"
             {...register("phoneNumber")}
-            // onChange={writeTel}
-            // value={tel}
             // name="Số Điện Thoại"
             placeholder="Số Điện Thoại"
             className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium  placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
@@ -493,8 +441,6 @@ const SignupPage = () => {
           <input
             type="text"
             {...register("note")}
-            // onChange={writeNote}
-            // value={note}
             // name="Ghi Chú"
             placeholder="Ghi Chú"
             className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium  placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
