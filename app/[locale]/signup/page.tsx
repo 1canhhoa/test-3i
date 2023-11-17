@@ -9,6 +9,8 @@ import { Button, Upload, message } from "antd";
 import type { UploadFile, UploadProps } from "antd/es/upload/interface";
 import "./signup.css";
 import { AiOutlineDownload } from "react-icons/ai";
+import { setCookie } from "cookies-next";
+import * as XLSX from "xlsx/xlsx.mjs";
 
 const schema = yup.object().shape({
   companyAddress: yup.string().required("Địa chỉ công ty không được để trống"),
@@ -40,70 +42,14 @@ interface FileData {
   type: string;
   file: File;
 }
-const [form, setForm] = useState([]);
-const [name, setName] = useState("");
-const [email, setEmail] = useState("");
-const [tel, setTel] = useState("");
-const [note, setNote] = useState("");
-const [address, setAddress] = useState("");
-const [id, setId] = useState(Date.now());
-
-const writeName = (event) => {
-  setName(event.target.value);
-};
-
-const writeEmail = (event) => {
-  setEmail(event.target.value);
-};
-
-const writeTel = (event) => {
-  setTel(event.target.value);
-};
-
-const writeNote = (event) => {
-  setNote(event.target.value);
-};
-
-const writeAddress = (event) => {
-  setAddress(event.target.value);
-};
-
-const webCookie = (options) => {
-  console.log(setCookie(id, options));
-  // console.log(getCookie("key", options));
-};
-const submitForm = (event) => {
-  event.preventDefault();
-  const nextForm = [...form];
-  nextForm.splice(0, 0, {
-    id: id,
-    name: name,
-    address: address,
-    tel: tel,
-    note: note,
-    email: email,
-  });
-  setForm(
-    nextForm.map((form) => {
-      return <div>{form}</div>;
-    })
-  );
-  setName("");
-  setAddress("");
-  setEmail("");
-  setNote("");
-  setTel("");
-  // cookies().set(
-  //   "name",
-  // "value"
-  // name: name,
-  // value: address,
-  // httpOnly: true,
-  // path: "/",
-  // );
-  console.log(nextForm);
-  webCookie(nextForm);
-};
+interface Form {
+  name: string;
+  address: string;
+  tel: string;
+  note: string;
+  email: string;
+  id: Date;
+}
 
 const SignupPage = () => {
   const {
@@ -117,11 +63,76 @@ const SignupPage = () => {
 
   const onSignUp = (data: FormData) => {
     // Handle form submission
+
     console.log(data);
   };
 
   const [image, setImage] = useState<File>();
   const [files, setFiles] = useState<FileData[]>([]);
+  const [form, setForm] = useState<Form[]>([]);
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [tel, setTel] = useState("");
+  // const [note, setNote] = useState("");
+  // const [address, setAddress] = useState("");
+  // const [id, setId] = useState(Date.now());
+
+  // const writeName = (event, data: Form) => {
+  //   setForm(event.target.data.name);
+  // };
+
+  // const writeEmail = (event) => {
+  //   setEmail(event.target.value);
+  // };
+
+  // const writeTel = (event) => {
+  //   setTel(event.target.value);
+  // };
+
+  // const writeNote = (event) => {
+  //   setNote(event.target.value);
+  // };
+
+  // const writeAddress = (event) => {
+  //   setAddress(event.target.value);
+  // };
+
+  // const webCookie = (options) => {
+  //   console.log(setCookie(`${id}`, options));
+  //   // console.log(getCookie("key", options));
+  // };
+  // const submitForm = (data: Form, event) => {
+  //   event.preventDefault();
+  //   const nextForm = [...data];
+  //   nextForm.splice(0, 0, {
+  //     id: id,
+  //     name: name,
+  //     address: address,
+  //     tel: tel,
+  //     note: note,
+  //     email: email,
+  //   });
+  //   setForm(
+  //     nextForm.map((form) => {
+  //       return <div>{form}</div>;
+  //     })
+  //   );
+  //   setName("");
+  //   setAddress("");
+  //   setEmail("");
+  //   setNote("");
+  //   setTel("");
+  //   webCookie(nextForm);
+  //   // cookies().set(
+  //   //   "name",
+  //   // "value"
+  //   // name: name,
+  //   // value: address,
+  //   // httpOnly: true,
+  //   // path: "/",
+  //   // );
+  //   console.log(nextForm);
+  // };
 
   const refInput = useRef<HTMLInputElement>(null);
   const handleImage = () => {
@@ -443,8 +454,8 @@ const SignupPage = () => {
             {...register("companyName")}
             type="text"
             // name="name"
-            onChange={writeName}
-            value={name}
+            // onChange={writeName}
+            // value={name}
             placeholder="Tên Công Ty"
             className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium  placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
           />
@@ -452,8 +463,8 @@ const SignupPage = () => {
           <input
             {...register("email")}
             type="email"
-            onChange={writeEmail}
-            value={email}
+            // onChange={writeEmail}
+            // value={email}
             // name="email"
             placeholder="Địa Chỉ Email"
             className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium  placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
@@ -463,8 +474,8 @@ const SignupPage = () => {
           )}
           <input
             {...register("companyAddress")}
-            onChange={writeAddress}
-            value={address}
+            // onChange={writeAddress}
+            // value={address}
             type="text"
             // name="Địa Chỉ Công Ty"
             placeholder="Địa Chỉ Công Ty"
@@ -473,8 +484,8 @@ const SignupPage = () => {
           <input
             type="text"
             {...register("phoneNumber")}
-            onChange={writeTel}
-            value={tel}
+            // onChange={writeTel}
+            // value={tel}
             // name="Số Điện Thoại"
             placeholder="Số Điện Thoại"
             className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium  placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
@@ -482,8 +493,8 @@ const SignupPage = () => {
           <input
             type="text"
             {...register("note")}
-            onChange={writeNote}
-            value={note}
+            // onChange={writeNote}
+            // value={note}
             // name="Ghi Chú"
             placeholder="Ghi Chú"
             className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium  placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
@@ -520,7 +531,7 @@ const SignupPage = () => {
             </div>
             <div className="w-full">
               <input
-                onClick={submitForm}
+                // onClick={submitForm}
                 type="submit"
                 value="ĐĂNG KÝ"
                 className="duration-80 mb-4 max-h-[50px] w-full cursor-pointer rounded-md border border-transparent bg-[green] py-3 px-6 text-center text-base font-medium text-white outline-none transition ease-in-out hover:bg-opacity-80 hover:shadow-signUp focus-visible:shadow-none"
