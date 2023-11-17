@@ -9,8 +9,12 @@ import { Button, Upload, message } from "antd";
 import type { UploadFile, UploadProps } from "antd/es/upload/interface";
 import "./signup.css";
 import { AiOutlineDownload } from "react-icons/ai";
+
 import { setCookie } from "cookies-next";
 import * as XLSX from "xlsx/xlsx.mjs";
+
+import sendEmail from "../utils/sendEmail";
+
 
 const schema = yup.object().shape({
   companyAddress: yup.string().required("Địa chỉ công ty không được để trống"),
@@ -61,7 +65,8 @@ const SignupPage = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSignUp = (data: FormData) => {
+  const onSignUp = async (data: FormData) => {
+    await sendEmail(data.email, "Test Subject", "Test Message");
     // Handle form submission
 
     console.log(data);

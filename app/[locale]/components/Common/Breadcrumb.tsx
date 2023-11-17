@@ -5,18 +5,17 @@ const Breadcrumb = ({
   pageName,
   description,
   renderHTML,
-  classitem
+  classitem,
 }: {
   pageName: string;
   description?: string;
   renderHTML?: string;
-  classitem?: string
+  classitem?: string;
 }) => {
   return (
     <>
       <section className="relative z-10 overflow-hidden pt-28 lg:pt-[150px]">
         <div className="flex items-center">
-
           {/* <div className="container">
             <div className="-mx-4 flex flex-wrap items-center justify-center h-full">
               <div
@@ -132,8 +131,14 @@ const Breadcrumb = ({
           </div>
         </div>
 
-        {renderHTML && <div className={`container ${classitem ? classitem : 'mt-36'}  font-mono-san`} dangerouslySetInnerHTML={{ __html: renderHTML }}></div>
-        }
+        {renderHTML && (
+          <div
+            className={`container ${
+              classitem ? classitem : "mt-36"
+            }  font-mono-san`}
+            dangerouslySetInnerHTML={{ __html: renderHTML }}
+          ></div>
+        )}
       </section>
     </>
   );
