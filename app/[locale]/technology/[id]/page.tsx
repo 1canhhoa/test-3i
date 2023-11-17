@@ -20,15 +20,15 @@ export async function generateMetadata(
   const id = params.id;
 
   const product = await GetAbout(Number(id));
-
+  // console.log(product);
   const previousImages = (await parent).openGraph?.images || [];
 
   return {
     title: product?.data?.title,
     description: product?.data?.short_content,
-    
+
     openGraph: {
-      images: [ `${getImg(product?.data?.gallery)}`, ...previousImages],
+      images: [`${getImg(product?.data?.gallery)}`, ...previousImages],
     },
   };
 }
