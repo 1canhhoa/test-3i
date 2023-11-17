@@ -1,5 +1,9 @@
+"use client"
 import Image from "next/image";
+import React, { useState } from 'react';
+import { useForm } from "react-hook-form";
 import SectionTitleFull from "../Common/SectionTitleFull";
+import Modal from "react-modal";
 
 const checkIcon = (
   <svg width="16" height="13" viewBox="0 0 16 13" className="fill-current">
@@ -17,8 +21,91 @@ const AboutSectionOne = () => {
     </p>
   );
 
+  //For modal regis
+  const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      width: '30%',
+      borderRadius: '20px'
+    },
+    overlay: {
+      backgroundColor: "rgba(69, 68, 68, 0.8)",
+      zIndex: '200'
+    }
+  }
+
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [price, setPrice] = useState([])
+
+  const openModal = (price: number) => {
+    setIsOpen(true);
+    setPrice((prev) => [...prev, price]);
+  }
+
+  const closeModal = () => {
+    setIsOpen(false);
+  }
+
+  //For submit form
+  const { handleSubmit, register, formState: {errors} } = useForm();
+  const [reqCustomer, setReqCustomer] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    companyAddress: '',
+    reqContent: '',
+    price: []
+  });
+
+  const onSubmit = (data: any) => {
+    const reqCustomerTemp = {
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      company: data.company,
+      companyAddress: data.companyAddress,
+      reqContent: data.reqContent,
+      price: price
+    }
+    setReqCustomer(reqCustomerTemp)
+    console.log(reqCustomerTemp);
+    sessionStorage.setItem("infoCustom", JSON.stringify(reqCustomerTemp));
+    closeModal();
+  }
+
   return (
     <section id="about" className="">
+      <div>
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+          <h1 className="text-3xl text-[green] font-bold ">Gửi yêu cầu tư vấn</h1>
+          <form className="flex flex-col py-5" onSubmit={handleSubmit(onSubmit)}>
+            <input className="border text-sm rounded-lg block w-full p-2.5 mb-3 mt-3" {...register("name", {required: true})} placeholder="Tên của bạn"/>
+            {errors.name && <span className="text-[red] mb-3">Không được để trống mục này</span>}
+            <input className="border text-sm rounded-lg block w-full p-2.5 mb-3" {...register("email", {required: true})} placeholder="Địa chỉ email"/>
+            {errors.email && <span className="text-[red] mb-3">Không được để trống mục này</span>}
+            <input className="border text-sm rounded-lg block w-full p-2.5 mb-3" {...register("phone", {required: true})} placeholder="Số điện thoại"/>
+            {errors.phone && <span className="text-[red] mb-3">Không được để trống mục này</span>}
+            <input className="border text-sm rounded-lg block w-full p-2.5 mb-3" {...register("company", {required: true})} placeholder="Công ty"/>
+            {errors.company && <span className="text-[red] mb-3">Không được để trống mục này</span>}
+            <input className="border text-sm rounded-lg block w-full p-2.5 mb-3" {...register("companyAddress", {required: true})} placeholder="Địa chỉ công ty"/>
+            {errors.companyAddress && <span className="text-[red] mb-3">Không được để trống mục này</span>}
+            <input className="border text-sm rounded-lg block w-full p-2.5 mb-3" {...register("reqContent", {required: true})} placeholder="Nội dung yêu cầu"/>
+            {errors.reqContent && <span className="text-[red] mb-3">Không được để trống mục này</span>}
+            <input type="submit" className="bg-[green] text-white p-3 rounded-lg font-semibold cursor-pointer" value="Gửi yêu cầu"/>
+          </form>
+        </Modal>
+      </div>
       <div className="container">
         <div
         //className="border-b border-body-color/[.15] pb-16 dark:border-white/[.15] md:pb-20 lg:pb-28"
@@ -67,7 +154,7 @@ const AboutSectionOne = () => {
                           <span className="text-body-color">/user/tháng</span>
                         </div>
                       </div>
-                      <button className="rounded-lg bg-[#269126] text-white">
+                      <button className="rounded-lg bg-[#269126] text-white"  onClick={() => openModal(20000)}>
                         <a className="flex px-6">
                           <span className=" py-4">ĐĂNG KÝ NGAY</span>
                           <svg
@@ -127,7 +214,7 @@ const AboutSectionOne = () => {
                           <span className="text-body-color">/user/tháng</span>
                         </div>
                       </div>
-                      <button className="rounded-lg bg-[#269126] text-white">
+                      <button className="rounded-lg bg-[#269126] text-white" onClick={() => openModal(45000)}>
                         <a className="flex px-6">
                           <span className=" py-4">ĐĂNG KÝ NGAY</span>
                           <svg
@@ -190,7 +277,7 @@ const AboutSectionOne = () => {
                           <span className="text-body-color">/user/tháng</span>
                         </div>
                       </div>
-                      <button className="rounded-lg bg-[#269126] text-white">
+                      <button className="rounded-lg bg-[#269126] text-white"  onClick={() => openModal(45000)}>
                         <a className="flex px-6">
                           <span className=" py-4">ĐĂNG KÝ NGAY</span>
                           <svg
@@ -255,7 +342,7 @@ const AboutSectionOne = () => {
                           <span className="text-body-color">/user/tháng</span>
                         </div>
                       </div>
-                      <button className="rounded-lg bg-[#269126] text-white">
+                      <button className="rounded-lg bg-[#269126] text-white"  onClick={() => openModal(60000)}>
                         <a className="flex px-6">
                           <span className=" py-4">ĐĂNG KÝ NGAY</span>
                           <svg
@@ -317,7 +404,7 @@ const AboutSectionOne = () => {
                           <span className="text-body-color">/user/tháng</span>
                         </div>
                       </div>
-                      <button className="rounded-lg bg-[#269126] text-white">
+                      <button className="rounded-lg bg-[#269126] text-white"  onClick={() => openModal(100000)}>
                         <a className="flex px-6">
                           <span className=" py-4">ĐĂNG KÝ NGAY</span>
                           <svg
