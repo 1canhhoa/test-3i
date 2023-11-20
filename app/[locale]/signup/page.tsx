@@ -9,12 +9,9 @@ import { Button, Upload, message } from "antd";
 import type { UploadFile, UploadProps } from "antd/es/upload/interface";
 import "./signup.css";
 import { AiOutlineDownload } from "react-icons/ai";
-
 import { setCookie } from "cookies-next";
 import * as XLSX from "xlsx/xlsx.mjs";
-
 import sendEmail from "../utils/sendEmail";
-
 
 const schema = yup.object().shape({
   companyAddress: yup.string().required("Địa chỉ công ty không được để trống"),
@@ -63,11 +60,22 @@ const SignupPage = () => {
     resolver: yupResolver(schema),
   });
 
+  const getCookieByForm = (data: FormData) => {
+    const dataCookie = {
+      companyName: data.companyName,
+      companyAddress: data.companyAddress,
+      email: data.email,
+      phoneNumber: data.phoneNumber,
+    };
+    // console.log("dataCookie", dataCookie);
+    setCookie("cookie", dataCookie);
+  };
   const onSignUp = async (data: FormData) => {
+    // console.log(data);
+    await getCookieByForm(data);
     await sendEmail(data.email, "Test Subject", "Test Message");
     // Handle form submission
     // submitForm(form);
-    console.log(data);
   };
 
   const [image, setImage] = useState<File>();
@@ -90,7 +98,7 @@ const SignupPage = () => {
     };
 
     setForm(form);
-    console.log(form);
+    // console.log(form);
   };
 
   const refInput = useRef<HTMLInputElement>(null);
@@ -408,7 +416,7 @@ const SignupPage = () => {
         <p className="mb-11 border-b border-body-color border-opacity-25 pb-11 text-base font-medium leading-relaxed text-body-color dark:border-white dark:border-opacity-25">
           Smartwork - Nâng tầm doanh nghiệp của bạn
         </p>
-        <form onSubmit={() => handleSubmit(onSignUp)}>
+        <form onSubmit={handleSubmit(onSignUp)}>
           <input
             {...register("companyName")}
             type="text"
@@ -422,7 +430,6 @@ const SignupPage = () => {
             {...register("email")}
             type="email"
             // onChange={writeEmail}
-
             placeholder="Địa Chỉ Email"
             className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium  placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
           />
