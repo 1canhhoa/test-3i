@@ -15,7 +15,6 @@ import * as XLSX from "xlsx/xlsx.mjs";
 
 import sendEmail from "../utils/sendEmail";
 
-
 const schema = yup.object().shape({
   companyAddress: yup.string().required("Địa chỉ công ty không được để trống"),
   phoneNumber: yup.number().required("Số điện thoại không được để trống"),
@@ -46,6 +45,7 @@ interface FileData {
   type: string;
   file: File;
 }
+
 interface Form {
   name: string;
   email: string;
@@ -53,6 +53,10 @@ interface Form {
   note: string;
   address: string;
 }
+type Data = {
+  formData: FormData;
+  form: Form;
+};
 const SignupPage = () => {
   const {
     control,
@@ -63,10 +67,11 @@ const SignupPage = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSignUp = async (data: FormData) => {
-    await sendEmail(data.email, "Test Subject", "Test Message");
+  const onSignUp = async (data: Data) => {
+    await sendEmail(data.formData.email, "Test Subject", "Test Message");
     // Handle form submission
-    // submitForm(form);
+    submitForm(data.form);
+    cookieForm(data.form);
     console.log(data);
   };
 
@@ -91,6 +96,17 @@ const SignupPage = () => {
 
     setForm(form);
     console.log(form);
+  };
+
+  const cookieForm = (data) => {
+    const cookie = {
+      name: data.name,
+      email: data.email,
+      tel: data.phone,
+      address: data.address,
+      note: data.note,
+    };
+    setCookie("cookie", cookie);
   };
 
   const refInput = useRef<HTMLInputElement>(null);
