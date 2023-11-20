@@ -65,14 +65,6 @@ const SignupPage = () => {
     resolver: yupResolver(schema),
   });
 
-<<<<<<< HEAD
-  const onSignUp = async (data: Data) => {
-    await sendEmail(data.formData.email, "Test Subject", "Test Message");
-    // Handle form submission
-    submitForm(data.form);
-    cookieForm(data.form);
-    console.log(data);
-=======
   const getCookieByForm = (data: FormData) => {
     const dataCookie = {
       companyName: data.companyName,
@@ -89,7 +81,6 @@ const SignupPage = () => {
     await sendEmail(data.email, "Test Subject", "Test Message");
     // Handle form submission
     // submitForm(form);
->>>>>>> 0d356aa6dd873273e04e6ba207e2eb97ab7a052d
   };
 
   const [image, setImage] = useState<File>();
@@ -101,30 +92,6 @@ const SignupPage = () => {
     address: "",
     note: "",
   });
-
-  const submitForm = (data) => {
-    const form = {
-      name: data.name,
-      email: data.email,
-      tel: data.phone,
-      address: data.address,
-      note: data.note,
-    };
-
-    setForm(form);
-    // console.log(form);
-  };
-
-  const cookieForm = (data) => {
-    const cookie = {
-      name: data.name,
-      email: data.email,
-      tel: data.phone,
-      address: data.address,
-      note: data.note,
-    };
-    setCookie("cookie", cookie);
-  };
 
   const refInput = useRef<HTMLInputElement>(null);
   const handleImage = () => {
