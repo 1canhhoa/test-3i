@@ -40,6 +40,8 @@ export default async function page({params,searchParams}:Props) {
         <meta>item okk</meta>
       </Head>
       <Breadcrumb
+              // pageName="Bảng giá"
+        description="Theo gói ứng dụng"
         pageName={data.data.title}
         renderHTML={data.data.content}
       />

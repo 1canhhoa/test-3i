@@ -148,27 +148,27 @@ export default function Platform() {
     arrows: false
   };
 
-  if (window.innerWidth <= 1068) {
-    settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 2,
-      slidesToScroll: 1,
-      arrows: false
-    };
-  }
+  // if (window.innerWidth <= 1068) {
+  //   settings = {
+  //     dots: true,
+  //     infinite: true,
+  //     speed: 500,
+  //     slidesToShow: 2,
+  //     slidesToScroll: 1,
+  //     arrows: false
+  //   };
+  // }
 
-    if (window.innerWidth <= 1068){
-        settings = {
-            dots: true,
-            infinite: true,
-            speed: 500,
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            arrows: false
-        }
-    }
+  //   if (window.innerWidth <= 1068){
+  //       settings = {
+  //           dots: true,
+  //           infinite: true,
+  //           speed: 500,
+  //           slidesToShow: 2,
+  //           slidesToScroll: 1,
+  //           arrows: false
+  //       }
+  //   }
 
     return (
         <>
@@ -183,7 +183,6 @@ export default function Platform() {
                 paragraph=""
                 center
               />
-    
               <Slider {...settings}>
                 {data.children.map((feature) => (
                   <SinglePlatform key={feature.id} feature={feature} />

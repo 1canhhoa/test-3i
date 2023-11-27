@@ -16,7 +16,7 @@ const Breadcrumb = ({
     <>
       <section className="relative z-10 overflow-hidden pt-28 lg:pt-[150px]">
         <div className="flex items-center">
-          {/* <div className="container">
+          <div className="container">
             <div className="-mx-4 flex flex-wrap items-center justify-center h-full">
               <div
                 className="w-full px-4 md:w-8/12 lg:w-7/12"
@@ -26,7 +26,7 @@ const Breadcrumb = ({
                     {pageName}
                   </h1>
                   <div className="bg-[#90ef90] rounded-lg ">
-                    <p className="text-base py-2 px-5 font-medium leading-relaxed text-4xl mt-4 text-[#ffffff] text-center bg-yellow-400 rounded-full">
+                    <p className=" py-2 px-5 font-medium leading-relaxed text-4xl mt-4 text-[#ffffff] text-center bg-yellow-400 rounded-full">
                       {description}
                     </p>
                   </div>
@@ -53,7 +53,7 @@ const Breadcrumb = ({
                 </div>
               </div>
             </div>
-          </div> */}
+          </div>
 
           <div>
             <span className="absolute top-0 left-0 z-[-1]">

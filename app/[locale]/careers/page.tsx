@@ -5,7 +5,7 @@ import Breadcrumb from "../components/Common/Breadcrumb";
 
 import {getImg} from '../utils/util';
 import { ResolvingMetadata, type Metadata } from "next";
-
+// import LayoutCareer from './layout';
 
 
 
@@ -41,8 +41,10 @@ export default async function  Careers({params}:any) {
   const data= await GetAbout(params.id)
 
   return (
+    // <LayoutCareer>
     <div>
       <Breadcrumb classitem={'mt-[20px]'} pageName={data.data.title} renderHTML={data.data.content}/>
     </div>
+    // </LayoutCareer>
   )
 }

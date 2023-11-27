@@ -13,6 +13,7 @@ import NavToggle from "./NavToggle";
 const Header = () => {
   const [dataMenu, setDataMenu] = useState([]);
   const [languageData, setLanguageData] = useState([]);
+console.log('dataMenu',dataMenu);
 
   const dataMenuFetch = async () => {
     try {
@@ -27,17 +28,17 @@ const Header = () => {
 
   // Sticky Navbar
   const [sticky, setSticky] = useState(false);
-  const handleStickyNavbar = () => {
-    if (window.scrollY >= 80) {
-      setSticky(true);
-    } else {
-      setSticky(false);
-    }
-  };
+  // const handleStickyNavbar = () => {
+  //   if (window.scrollY >= 80) {
+  //     setSticky(true);
+  //   } else {
+  //     setSticky(false);
+  //   }
+  // };
 
   useEffect(() => {
     dataMenuFetch();
-    window.addEventListener("scroll", handleStickyNavbar);
+    // window.addEventListener("scroll", handleStickyNavbar);
   }, []);
 
   // Navbar toggle
@@ -53,11 +54,7 @@ const Header = () => {
     <>
       <header
         id="Header"
-        className={`header top-0 left-0 z-40 flex w-full items-center bg-transparent ${
-          sticky
-            ? "!fixed !z-[9999] !bg-white !bg-opacity-80 shadow-sticky backdrop-blur-sm !transition dark:!bg-[green] dark:!bg-opacity-20"
-            : "absolute"
-        } h-[${72}px] max-[450px]:h-[50px]`}
+        className={`header fixed top-0 !bg-white !bg-opacity-80 shadow-sticky backdrop-blur-sm left-0 z-40 flex w-full items-center bg-transparent h-[${72}px] max-[450px]:h-[50px] `}
       >
         <div className="w-full px-[20px]">
           <div

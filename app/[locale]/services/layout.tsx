@@ -18,6 +18,11 @@ export default function Products({
   children: React.ReactNode;
 }) {
   return (
-    <div>{children}</div>
+    <div className="mt-96">
+      <div>header service</div>
+      {children}
+      <div>footer service</div>
+      </div>
+
   );
 }

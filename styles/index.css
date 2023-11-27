@@ -4,17 +4,22 @@
 @tailwind components;
 @tailwind utilities;
 
+.th-bd {
+  @apply border-[1px] border-orange;
+}
+
 @layer base {
   body {
-    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
-  body *{
+  body * {
     -webkit-tap-highlight-color: transparent;
   }
 
   .NavOpen,
-  .ModalOpen{
+  .ModalOpen {
     overflow: hidden;
   }
 }
@@ -41,8 +46,8 @@
   }
 
   /* detail blog page */
-  .section-blog-detail h2{
-    font-family: 'Noto Serif', serif;
+  .section-blog-detail h2 {
+    font-family: "Noto Serif", serif;
     margin-bottom: 20px;
   }
 
@@ -54,40 +59,40 @@
     overflow: hidden;
   }
 
-  #problem li h3{
+  #problem li h3 {
     padding: 10px 20px;
     color: white;
   }
 
-  #problem li p{
+  #problem li p {
     padding: 10px 20px;
   }
-  
-  #problem li:first-child{
+
+  #problem li:first-child {
     border-color: #53b700;
     margin-left: 10%;
   }
 
-  #problem li:first-child h3{
+  #problem li:first-child h3 {
     background-color: #53b700;
   }
 
-  #problem li:nth-child(2){
+  #problem li:nth-child(2) {
     border-color: #009cb7;
     margin-right: 5%;
     margin-left: 5%;
   }
 
-  #problem li:nth-child(2) h3{
+  #problem li:nth-child(2) h3 {
     background-color: #009cb7;
   }
 
-  #problem li:last-child{
+  #problem li:last-child {
     border-color: #6947e4;
     margin-right: 10%;
   }
 
-  #problem li:last-child h3{
+  #problem li:last-child h3 {
     background-color: #6947e4;
   }
 
@@ -95,22 +100,22 @@
     border-collapse: initial;
   }
 
-  #benefit td{
+  #benefit td {
     background-color: white;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
 
-  #benefit h3{
+  #benefit h3 {
     margin-top: 20px;
     margin-bottom: 20px;
   }
 
-  #benefit p{
+  #benefit p {
     text-align: justify;
   }
 
-  .benefit-col4 td{
+  .benefit-col4 td {
     width: calc(100% / 4);
   }
 
@@ -118,19 +123,19 @@
   #feature table,
   #introducttion,
   #introducttion table,
-  #options, 
+  #options,
   #options table,
   #salient-features,
-  #salient-features table{
+  #salient-features table {
     border-collapse: initial;
   }
-  
+
   #feature tr,
-  #introducttion tr{
+  #introducttion tr {
     vertical-align: top;
   }
 
-  #feature table td a{
+  #feature table td a {
     border-width: 1px 1px 1.5px;
     border-style: solid;
     border-color: transparent;
@@ -142,30 +147,31 @@
     align-items: center;
   }
 
-  #feature table td a:hover{
+  #feature table td a:hover {
     border-color: rgba(171, 173, 171, 0.4) rgba(171, 173, 171, 0.4) green;
   }
 
-  #feature table td a>*{
+  #feature table td a > * {
     margin-right: 7px;
   }
-  #feature ul li{
+  #feature ul li {
     margin-bottom: 10px;
   }
 
-  #advantage td p{
+  #advantage td p {
     display: flex;
     flex-wrap: wrap;
-    align-items: center
+    align-items: center;
   }
 
-  #options td{
+  #options td {
     background-color: #f7f7f7;
     text-align: center;
   }
 }
 
-.modal ul, .modal ol {
+.modal ul,
+.modal ol {
   padding-inline-start: 40px;
 }
 
@@ -177,7 +183,8 @@
     background-size: cover;
 } */
 
-.slick-prev:before, .slick-next:before {
+.slick-prev:before,
+.slick-next:before {
   font-size: 100px !important;
   color: #47d2e4 !important;
 }
