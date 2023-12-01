@@ -83,11 +83,6 @@ const Page = async ({ params }: Props) => {
   
   return (
     <div className="relative th-bd">
-      {/* <Head>
-        <title>{titleContent}</title>
-        <meta name="description">{descriptionContent}</meta>
-        <meta property="og:image">{getImg(data?.data?.gallery)}</meta>
-      </Head> */}
       <Head>
         <title>{titleContent}</title>
         <meta name="description" content={descriptionContent} />
@@ -111,12 +106,10 @@ const Page = async ({ params }: Props) => {
       <Feedback/>
 
       <ProductSystem fontTitle={systemStructure.className} title={titleContent} catId={catId} />
-      <div>3</div>
 
       {dataFile &&
         <Document fontTitle={systemStructure.className} title={titleContent} content={dataFile} />
       }
-      <div>4</div>
       <Contact />
     </div>
   );
