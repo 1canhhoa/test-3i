@@ -82,7 +82,7 @@ const Page = async ({ params }: Props) => {
   // console.log("viewportHeight",viewportHeight);
   
   return (
-    <div className="relative th-bd">
+    <div className="relative">
       <Head>
         <title>{titleContent}</title>
         <meta name="description" content={descriptionContent} />

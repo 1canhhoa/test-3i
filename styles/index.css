@@ -210,7 +210,6 @@ body {
 .snow_wrap {
   pointer-events: none;
   z-index: 1000;
-  border: 1px solid red;
   top: 0;
   bottom: 0;
   left: 0;
