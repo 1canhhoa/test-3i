@@ -44,17 +44,6 @@ interface FileData {
   file: File;
 }
 
-interface Form {
-  name: string;
-  email: string;
-  tel: string;
-  note: string;
-  address: string;
-}
-type Data = {
-  formData: FormData;
-  form: Form;
-};
 const SignupPage = () => {
   const {
     control,
@@ -85,13 +74,6 @@ const SignupPage = () => {
 
   const [image, setImage] = useState<File>();
   const [files, setFiles] = useState<FileData[]>([]);
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    tel: "",
-    address: "",
-    note: "",
-  });
 
   const refInput = useRef<HTMLInputElement>(null);
   const handleImage = () => {

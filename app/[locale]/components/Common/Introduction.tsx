@@ -26,11 +26,6 @@ fontTitle?: string;
 fontDescription?: string;
 }) => {
     
-    console.log("pageName",pageName);
-    console.log("description",description);
-    console.log("metaImage",metaImage);
-    console.log("fontTitle",fontTitle);
-    
 return (
     <>
     <section id="introduction" className={`relative z-10 overflow-hidden py-10 mt-28 lg:mt-[72px] bg-[linear-gradient(45deg,_#53b700,_#00c1bf)] dark:bg-none ${ fontFamily}`}>
