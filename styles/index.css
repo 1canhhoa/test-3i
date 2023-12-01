@@ -211,7 +211,10 @@ body {
   pointer-events: none;
   z-index: 1000;
   border: 1px solid red;
-  height: 100vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   width: 100%;
   background: url("../public/images/background.png");
   background-size: cover;
@@ -219,7 +222,6 @@ body {
   overflow: hidden;
   position: absolute;
 }
-
 .snow,
 .snow:before,
 .snow:after {
@@ -228,15 +230,15 @@ body {
   left: 0;
   bottom: 0;
   right: 0;
-  background-image: radial-gradient(4px 4px at 100px 50px, black 100%, transparent),
-    radial-gradient(6px 6px at 200px 150px, yellow 100%, transparent),
-    radial-gradient(3px 3px at 300px 250px, red 100%, transparent),
-    radial-gradient(4px 4px at 400px 350px, blue 100%, transparent),
-    radial-gradient(6px 6px at 500px 100px, purple 100%, transparent),
-    radial-gradient(3px 3px at 50px 200px, green 100%, transparent),
-    radial-gradient(4px 4px at 150px 300px, pink 100%, transparent),
-    radial-gradient(6px 6px at 250px 400px, violet 100%, transparent),
-    radial-gradient(3px 3px at 350px 500px, teal 100%, transparent);
+  background-image: radial-gradient(1px 1px at 100px 50px, black 100%, transparent),
+    radial-gradient(2px 2px at 200px 150px, yellow 100%, transparent),
+    /* radial-gradient(2px 2px at 300px 250px, red 100%, transparent), */
+      radial-gradient(2px 2px at 400px 350px, blue 100%, transparent),
+    radial-gradient(2px 2px at 500px 100px, purple 100%, transparent);
+  /* radial-gradient(2px 2px at 50px 200px, green 100%, transparent); */
+  /* radial-gradient(2px 2px at 150px 300px, pink 100%, transparent), */
+  /* radial-gradient(2px 2px at 250px 400px, violet 100%, transparent), */
+  /* radial-gradient(2px 2px at 350px 500px, teal 100%, transparent); */
   background-size: 650px 650px;
   animation: snow 3s linear infinite;
   content: "";

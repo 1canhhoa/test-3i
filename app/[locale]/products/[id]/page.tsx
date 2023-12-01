@@ -12,7 +12,9 @@ import Contact from "../../components/Contact";
 import Document from "../../components/Products/Document";
 import Introduction from "../../components/Common/Introduction";
 import ProductSystem from "../../components/Products/ProductSystem";
-import { blogFont, blogTitleFont, blogDescriptionFont, systemStructure } from "../../utils/fonts";;
+import { blogFont, blogTitleFont, blogDescriptionFont, systemStructure } from "../../utils/fonts";
+import Feature from "../../components/Products/Feature";
+import SnowAnimation from '../../components/SnowAnimation'
 type Props = {
   params: {locale: string, id: string };
 };
@@ -35,6 +37,8 @@ type Props = {
 //   };
 // }
 const Page = async ({ params }: Props) => {
+
+  
   const data = await GetItem(Number(params.id));
   const languageChoose = params.locale;
 
@@ -44,10 +48,7 @@ const Page = async ({ params }: Props) => {
   let descriptionContent = data?.data?.short_content;
   let catId = data?.data?.cat_id;
   const dataLanguage = data?.data?.multiple_language;
-// useEffect(()=>{
-//     console.log('tohien');
-    
-// },[])
+
   if (languageChoose !== 'vi' && params.id !== '383'){
     const multiLanguage = JSON.parse(dataLanguage);
     multiLanguage?.map((item) => {
@@ -60,9 +61,28 @@ const Page = async ({ params }: Props) => {
     });
   }
 
+  // const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+  // const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
 
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setViewportWidth(window.innerWidth);
+  //     setViewportHeight(window.innerHeight);
+  //   };
+
+  //   // Thêm event listener để theo dõi sự thay đổi của viewport khi cửa sổ được resize
+  //   window.addEventListener('resize', handleResize);
+
+  //   // Xóa event listener khi component unmount
+  //   return () => {
+  //     window.removeEventListener('resize', handleResize);
+  //   };
+  // }, []); 
+
+  // console.log("viewportHeight",viewportHeight);
+  
   return (
-    <div className="relative">
+    <div className="relative th-bd">
       {/* <Head>
         <title>{titleContent}</title>
         <meta name="description">{descriptionContent}</meta>
@@ -73,10 +93,15 @@ const Page = async ({ params }: Props) => {
         <meta name="description" content={descriptionContent} />
         <meta property="og:image" content={getImg(data?.data?.gallery)} />
       </Head>
-      <div className="snow_wrap">
-        <div className="snow"></div>
-      </div>
-      <Hero/>
+
+      <SnowAnimation/>
+
+      <Hero 
+        pageName={titleContent}
+      />
+
+      <Feature/>
+
       <Introduction
         pageName={titleContent}
         description={descriptionContent}

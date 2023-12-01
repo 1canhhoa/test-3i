@@ -2,10 +2,9 @@
 import React ,{useEffect,useState} from 'react'
 import imgHeroProduct from '../../../../public/images/products/abc.jpeg'
 import dsds from '../../../../public/images/products/vtcetdhdn.jpg'
-import laptop from '../../../../public/images/products/laptop.jpeg'
 import Image from 'next/image'
-import next from 'next/types'
-const Hero = () => {
+import { Icon } from '@iconify/react';
+const Hero = ({pageName}) => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
@@ -46,21 +45,22 @@ const Hero = () => {
     }
   }
   return (
-    <div className='relative w-full h-[900px] flex justify-center items-start'>
+    <div className='relative w-full h-[900px]  flex justify-center items-start'>
         <Image src={imgHeroProduct} className='w-full h-[900px] absolute' alt="sasa" />
-        {/* <Image src={dsds}  alt='ksksk' className='w-[700px] top-1/2 -translate-y-1/2 right-[200px] h-[500px] absolute' /> */}
-      <div className='px-8 flex lg:flex-row flex-col items-center gap-8 absolute lg:justify-around lg:items-start w-full mt-[200px]'>
-      {/* <h1 className='text-6xl text-[#3b3663] font-bold absolute top-1/3 left-[200px]'> */}
-        <h1 className=' text-[#3b3663] h-[160px] text-6xl font-bold'>
-          <div className='text-lg mb-4 font-medium'>WELLCOME TO 3I SOLUTIONS</div>
-            {`Thiết Kế Website`}<br/>
-          <span className="txt-rotate min-h-[32px] pt-10" data-rotate='[ "Web Developer", "Web Designer", "UI/UX Designer" ]'>
-              <span className="wrap min-h-[32px] ">{text}</span>
-          </span>
-        </h1>
-        <Image src={dsds}  alt='ksksk' className='w-[550px] border-[5px] border-indigo-400 h-[350px] top-[20%]' />
-        {/* <Image src={laptop}  alt='ksksk' className='w-[650px] border-[5px] border-indigo-400 h-[550px] top-[20%]' /> */}
-      </div>
+        <div className=' px-8 flex lg:flex-row absolute flex-col items-center gap-2 lg:justify-around lg:items-center w-full mt-[100px]'>
+          <h1 className=' text-[rgb(59,54,99)] max-w-[600px] ease-linear duration-150 h-[160px] text-4xl lg:text-5xl font-bold'>
+            <div className='text-base md:text-lg mb-4 font-medium tracking-wider'>WELLCOME TO 3I SOLUTIONS</div>
+              {pageName}<br/>
+            <span className="txt-rotate min-h-[32px] pt-10" data-rotate='[ "Web Developer", "Web Designer", "UI/UX Designer" ]'>
+                <span className="wrap min-h-[32px] ">{text}</span>
+            </span>
+          </h1>
+          <div className='relative z-0 flex items-start'>
+            <Icon icon="teenyicons:tv-outline"  fontSize={600} className=' z-[1000]' color='#99f6e4'/>
+            <Image src={dsds}  alt='ksksk' className='w-[520px] top-[80px] left-[40px] absolute shadow-sm rounded-xl h-[360px]' />
+          </div>
+        </div>
+
     </div>
   )
 }

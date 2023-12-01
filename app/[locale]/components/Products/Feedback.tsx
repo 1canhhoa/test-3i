@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 import "swiper/css/free-mode";
 // import {  } from 'swiper/modules';
 import { FreeMode, Autoplay,Pagination, Navigation } from "swiper";
-import SpaceCity1 from "../../../../public/images/products/SpaceCity1.jpg";
+import SpaceCity1 from "../../../../public/images/products/ggg1.png";
 import { FaQuoteLeft } from "react-icons/fa";
 import {
   RxArrowTopRight,
@@ -59,14 +59,18 @@ const Feedback = () => {
     },
   ];
   return (
-    <div className="flex items-center justify-center flex-col h-[900px] bg-gray-100">
+    <div className=" flex items-center justify-center flex-col h-[900px] bg-gray-100">
+      <div className='flex flex-col w-ful py-10 my-[50px] text-md md:text-2xl font-semibold bg-gray-200 th-fl'>
+        được tin tưởng sử dụng bởi hàng trăm tổ chức,cá nhân 
+      <div className='text-sm font-normal px-24 md:px-48 text-center'>Sự tin tưởng là yếu tố chính để xây dựng văn hóa tổ chức tích cực, thuận lợi cho sự tăng trưởng và phát triển. Các nhóm làm việc hiệu quả, có sự tương tác tích cực, thường tạo ra kết quả tích cực cho tổ chức.
+      </div>
+      </div>
       <Swiper
         effect={'silde'}
         breakpoints={{
           0: {
             slidesPerView: 1,
             spaceBetween: 0,
-
           },
           575: {
             slidesPerView: 1,
@@ -111,12 +115,12 @@ const Feedback = () => {
       >
         {ServiceData.map((item) => (
           <SwiperSlide key={item.title}>
-            <div className=" max-w-[400px] text-black h-[500px] md:max-w-[370px] lg:h-[500px] lg:max-w-[362px] xl:max-w-[400px] flex flex-col gap-6 mb-10 group relative shadow-lg bg-white rounded-xl px-6 py-8    overflow-hidden cursor-pointer">
+            <div className="   max-w-[400px] text-black h-[500px] md:max-w-[370px] lg:h-[500px] lg:max-w-[362px] xl:max-w-[400px] flex flex-col gap-6 mb-10 group relative shadow-lg bg-white rounded-xl px-6 py-8    overflow-hidden cursor-pointer">
               <div
-                className="flex flex-col justify-center items-center gap-2 inset-0 bg-cover bg-center"
+                className="flex  flex-col justify-center items-center gap-2 inset-0 bg-cover bg-center"
               >
-                <Image src={SpaceCity1} className='h-24 w-24 rounded-full' alt="" />
-                <div className='text-lg font-semibold'>Amma Chamberlain</div>
+                <Image src={SpaceCity1} className='h-24 border-[1px] border-gray-200 w-24 rounded-full' alt="" />
+                <div className='text-lg font-semibold'>Emma Chamberlain</div>
               </div>
               <div className='flex justify-end'>
                   <FaQuoteLeft color='orange' className=''/>
