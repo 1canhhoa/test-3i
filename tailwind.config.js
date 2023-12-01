@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const colors = require("tailwindcss/colors");
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
@@ -24,6 +25,7 @@ module.exports = {
       "body-color": "#959CB1",
     },
     screens: {
+      0: "0px",
       xs: "450px",
       // => @media (min-width: 450px) { ... }
 
@@ -35,7 +37,7 @@ module.exports = {
 
       lg: "992px",
       // => @media (min-width: 992px) { ... }
-
+      1100: "1100px",
       xl: "1200px",
       xl_p1: "1201px",
       // => @media (min-width: 1200px) { ... }
@@ -44,6 +46,32 @@ module.exports = {
       // => @media (min-width: 1400px) { ... }
     },
     extend: {
+      colors: {
+        transparent: "transparent",
+        current: "currentColor",
+        black: colors.black,
+        white: colors.white,
+        emerald: colors.emerald,
+        indigo: colors.indigo,
+        yellow: colors.yellow,
+        stone: colors.warmGray,
+        sky: colors.lightBlue,
+        neutral: colors.trueGray,
+        gray: colors.coolGray,
+        slate: colors.blueGray,
+        lime: colors.lime,
+        rose: colors.rose,
+        pink: colors.pink,
+        purple: colors.urple,
+        fuchsia: colors.fuchsia,
+        violet: colors.violet,
+        blue: colors.blue,
+        teal: colors.teal,
+        green: colors.green,
+        teal: colors.teal,
+        orange: colors.orange,
+        red: colors.red,
+      },
       textShadow: {
         // Define your custom text shadow classes here
         sm: "1px 1px 2px rgba(0, 0, 0, 0.5)",
@@ -57,7 +85,7 @@ module.exports = {
       },
       backgroundImage: {
         "nav-mobile": "url('/images/menu/map_menu.jpg')",
-        "cta-mobile": "url('/image/HomeSlides/cta-mobile.jpg')"
+        "cta-mobile": "url('/image/HomeSlides/cta-mobile.jpg')",
       },
       keyframes: {
         fadeInDown: {
@@ -76,5 +104,6 @@ module.exports = {
       },
     },
   },
+  mode: "jit",
   plugins: [require("tailwind-scrollbar")({ nocompatible: true })],
 };
