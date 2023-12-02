@@ -63,10 +63,10 @@ const ProductSystemItem: React.FC<ProductSystemItemProps> = ({ data }) => {
   }
 
   return (
-    <li className="w-1/2 mb-[10px] px-[3px]" id={data.Id}>
+    <li className="w-fit mr-2 h-12 th-fl  mb-[10px] px-[3px]" id={data.Id}>
       <span
         onClick={() => handleOpenModal(data.Id)}
-        className="cursor-pointer block py-[10px] border-[1px] border-[transparent] border-b-[#f5f5f5] hover:border-b-[#5ab46c] hover:shadow-[0px_0px_2px_1px_rgba(0,0,0,0.1)]"
+        className="border-[1px] px-2 border-gray-200 rounded-sm cursor-pointer flex justify-center items-center py-[10px]  border-[transparent] hover:border-b-[#5ab46c] hover:shadow-[0px_0px_2px_1px_rgba(0,0,0,0.1)]"
       >
         {data?.Image ?
           <Image src={`${process.env.BACKEND_URL}/${data?.Image}`} width={20} height={20} alt={data.Title} className="inline mr-[5px] align-middle" />

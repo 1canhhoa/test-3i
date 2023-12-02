@@ -4,7 +4,14 @@ import imgHeroProduct from '../../../../public/images/products/abc.jpeg'
 import dsds from '../../../../public/images/products/vtcetdhdn.jpg'
 import Image from 'next/image'
 import { Icon } from '@iconify/react';
-const Hero = ({pageName}) => {
+const Hero = (
+  {
+    pageName,
+    metaImage
+}:{
+  pageName:string,
+  metaImage:string
+}) => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
@@ -57,7 +64,7 @@ const Hero = ({pageName}) => {
           </h1>
           <div className='relative z-0 flex items-start'>
             <Icon icon="teenyicons:tv-outline"  fontSize={600} className=' z-[1000]' color='#99f6e4'/>
-            <Image src={dsds}  alt='ksksk' className='w-[520px] top-[80px] left-[40px] absolute shadow-sm rounded-xl h-[360px]' />
+            <Image src={metaImage} width={700} height={700}  alt='ksksk' className='w-[520px] top-[80px] left-[40px] absolute shadow-sm rounded-xl h-[360px]' />
           </div>
         </div>
 

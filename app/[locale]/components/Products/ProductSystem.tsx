@@ -16,48 +16,54 @@ interface ProductSystemProps {
 
 const ProductSystem: React.FC<ProductSystemProps> = ({ fontfamily, fontTitle, title, catId }) => {
   const pathname  = usePathname();
-  const [ isLoading, setIsLoading ] = useState(false);
-  const [treeCategory, setTreeCategory] = useState<any>([]);
+  const [treeCategory, setTreeCategory] = useState(null);
+  const [parentItem, setParentItem] = useState([]);
+  const [childItem, setChildItem] = useState([]);
 
-  const parentItem = [];
-  const childItem = [];
+  const fetchData = async () => {
+    const data = await GetTreeCategoryData();
+    setTreeCategory(data);
 
-  const fetchData = async() => {
-    setTreeCategory(await GetTreeCategoryData());
+    // Xử lý dữ liệu ở đây sau khi có dữ liệu mới
+    const newParentItem = [];
+    const newChildItem = [];
+
+    data?.data?.forEach(obj => {
+      if (obj.ParentId === catId) {
+        newParentItem.push(obj);
+      } else {
+        newChildItem.push(obj);
+      }
+    });
+
+    setParentItem(newParentItem);
+    setChildItem(newChildItem);
   };
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  treeCategory?.data?.forEach(obj => {
-    if (obj.ParentId === catId){
-      parentItem.push(obj);
-    } else {
-      childItem.push(obj);
-    }
-  });
-
   return (
     <section id="productSystem" className={`w-full ${fontfamily} mt-[72px]`}>
       <div className="container">
         <h2 className={`text-[28px] font-semibold text-center mb-[40px] ${fontTitle}`}>Danh mục chức năng {title}</h2>
         <div className="flex flex-wrap">
-          {parentItem.map((parent) => {
+          {parentItem.map((parent,index) => {
             const imageParent = parent?.Image ? `${process.env.BACKEND_URL}${parent?.Image}` : '/images/common/icon-structure-default.png';
             return (
-              <div key={parent.Id} className="w-1/2 px-[15px] mb-[48px] border-r-[1px] border-r-[#dee2e6] even:border-r-0">
+              <div key={index} className="w-1/2 px-[15px] mb-[48px] border-r-[1px] border-r-[#dee2e6] even:border-r-0">
                 <h3 className={`text-center font-medium mb-[30px] text-[24px] underline leading-6 ${fontTitle}`}>
                   <Image src={imageParent} width={20} height={20} alt={parent.Title} className="inline mr-[5px] align-middle" />
                   {parent.Title}
                 </h3>
-                <ul className="flex flex-wrap">
-                  {childItem.map((child) => (
-                    <>
+                <ul className="flex mr-2 justify-start items-start flex-wrap">
+                  {childItem.map((child,index) => (
+                    <div key={index}>
                       {child.ParentId === parent.Id &&
-                        <ProductSystemItem key={child.Id} data={child}/>
+                        <ProductSystemItem  data={child}/>
                       }
-                    </>
+                    </div>
                   ))}
                 </ul>
               </div>

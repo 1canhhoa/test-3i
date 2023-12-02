@@ -36,7 +36,7 @@ const MainMenu = ({ dataMenu, navbarOpen, navbarToggleHandler }) => {
       <ul className="block items-center xl:flex xl:space-x-[20px]">
         {dataMenu.map((menuItem, index) => (
           <li
-            key={menuItem.id}
+            key={index}
             className=" group relative mb-[4px] border-none"
           >
             {menuItem.title ? (
@@ -45,13 +45,14 @@ const MainMenu = ({ dataMenu, navbarOpen, navbarToggleHandler }) => {
                 {menuItem?.children.length > 0 ? (
                   <span
                     onClick={() => handleSubmenu(index)}
-                    className={`flex w-full cursor-pointer items-center justify-between text-sm font-bold uppercase text-white group-hover:text-[green] dark:text-white xl:mr-0 xl:inline-flex xl:py-6 xl:px-0 xl:text-[12px] xl:text-dark 2xl:text-base`}
+                    className={`flex w-full cursor-pointer py-2 items-center justify-between text-base font-bold uppercase text-white group-hover:text-[green] dark:text-white xl:mr-0 xl:inline-flex xl:py-6 xl:px-0 xl:text-[12px] xl:text-dark 2xl:text-base`}
                   >
                     {menuItem.title}
                     <BsChevronDown size={16} className="ml-[7px] font-bold" />
                   </span>
                 ) : (
                   <Link
+                  onClick={navbarToggleHandler}
                     href={`/${handleItemNavBar(menuItem.multiple_language)}`}
                     className={`pointer flex cursor-pointer py-2 text-base font-bold uppercase text-white group-hover:text-[green] dark:text-white lg:mr-0 lg:inline-flex lg:py-6 lg:px-0 xl:text-[12px] xl:text-dark 2xl:text-base`}
                   >
@@ -66,7 +67,7 @@ const MainMenu = ({ dataMenu, navbarOpen, navbarToggleHandler }) => {
                   >
                     {menuItem?.children.map((submenuItem, index) => (
                       <div
-                        key={submenuItem}
+                        key={index}
                         className="group/submenu flex items-center hover:text-[green]"
                       >
                         <svg

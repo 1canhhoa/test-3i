@@ -40,15 +40,17 @@ export async function generateMetadata(
 }
 
 export default async function Page({ params }: Props) {
+  
   const data = await GetItem(Number(params.id));
   const languageChoose = params.locale;
-
+  
   let dataFile = data?.data?.attributes;
   let dataContent = data?.data?.content;
   let titleContent = data?.data?.title;
   let descriptionContent = data?.data?.short_content;
   let catId = data?.data?.cat_id;
   const dataLanguage = data?.data?.multiple_language;
+  console.log('data',data.data);
 
   if (languageChoose !== "vi" && params.id !== "383") {
     const multiLanguage = JSON.parse(dataLanguage);
@@ -69,7 +71,10 @@ export default async function Page({ params }: Props) {
         <meta property="og:image" content={getImg(data?.data?.gallery)} />
       </Head>
       <SnowAnimation/>
-      <Hero pageName={titleContent}/>
+      <Hero 
+      pageName={titleContent}
+      metaImage={getImg(data?.data?.gallery)}
+      />
       <Feature/>
       <Introduction
         pageName={titleContent}
