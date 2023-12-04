@@ -111,11 +111,11 @@ const Feedback = () => {
           prevEl: '.swiper-button-prev',
           // clickable: true,
         }}
-        className=" max-w-[400px] md:max-w-[70%]"
+        className=" max-w-[400px] md:max-w-[80%]"
       >
         {ServiceData.map((item) => (
           <SwiperSlide key={item.title}>
-            <div className="   max-w-[400px] text-black h-[500px] md:max-w-[370px] lg:h-[500px] lg:max-w-[362px] xl:max-w-[400px] flex flex-col gap-6 mb-10 group relative shadow-lg bg-white rounded-xl px-6 py-8    overflow-hidden cursor-pointer">
+            <div className=" mx-4 hover:scale-105  max-w-[400px] text-black h-[500px] md:max-w-[370px] lg:h-[500px] lg:max-w-[362px] xl:max-w-[400px] flex flex-col gap-6 mb-10 mt-4 group relative shadow-lg bg-white rounded-xl px-6 py-8    overflow-hidden cursor-pointer">
               <div
                 className="flex  flex-col justify-center items-center gap-2 inset-0 bg-cover bg-center"
               >

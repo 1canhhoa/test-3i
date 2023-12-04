@@ -21,28 +21,29 @@ type Props = {
   params: { locale: string; id: string };
 };
 
-export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
+// export async function generateMetadata(
+//   { params }: Props,
+//   parent: ResolvingMetadata
+// ): Promise<Metadata> {
 
-  const id = params.id;
-  const product = await GetItem(Number(id));
-  const previousImages = (await parent).openGraph?.images || [];
+//   const id = params.id;
+//   const product = await GetItem(Number(id));
+//   const previousImages = (await parent).openGraph?.images || [];
 
-  return {
-    title:product?.data?.title,
-    description:product?.data?.short_content,
-    openGraph: {
-      images: [`${getImg(product?.data?.gallery)}`, ...previousImages],
-    },
-  };
-}
+//   return {
+//     title:product?.data?.title,
+//     description:product?.data?.short_content,
+//     openGraph: {
+//       images: [`${getImg(product?.data?.gallery)}`, ...previousImages],
+//     },
+//   };
+// }
 
 export default async function Page({ params }: Props) {
   
   const data = await GetItem(Number(params.id));
   const languageChoose = params.locale;
+  // console.log('data',data);
   
   let dataFile = data?.data?.attributes;
   let dataContent = data?.data?.content;
@@ -50,7 +51,6 @@ export default async function Page({ params }: Props) {
   let descriptionContent = data?.data?.short_content;
   let catId = data?.data?.cat_id;
   const dataLanguage = data?.data?.multiple_language;
-  console.log('data',data.data);
 
   if (languageChoose !== "vi" && params.id !== "383") {
     const multiLanguage = JSON.parse(dataLanguage);
@@ -70,12 +70,12 @@ export default async function Page({ params }: Props) {
         <meta name="description" content={descriptionContent} />
         <meta property="og:image" content={getImg(data?.data?.gallery)} />
       </Head>
-      <SnowAnimation/>
+      {/* <SnowAnimation/> */}
       <Hero 
       pageName={titleContent}
       metaImage={getImg(data?.data?.gallery)}
       />
-      <Feature/>
+      <Feature pageName={titleContent} />
       <Introduction
         pageName={titleContent}
         description={descriptionContent}

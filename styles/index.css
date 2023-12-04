@@ -229,11 +229,11 @@ body {
   left: 0;
   bottom: 0;
   right: 0;
-  background-image: radial-gradient(1px 1px at 100px 50px, black 100%, transparent),
-    radial-gradient(2px 2px at 200px 150px, yellow 100%, transparent),
+  background-image: radial-gradient(1px 1px at 100px 50px, teal 100%, transparent),
+    radial-gradient(2px 2px at 200px 150px, teal 100%, transparent),
     /* radial-gradient(2px 2px at 300px 250px, red 100%, transparent), */
-      radial-gradient(2px 2px at 400px 350px, blue 100%, transparent),
-    radial-gradient(2px 2px at 500px 100px, purple 100%, transparent);
+      radial-gradient(2px 2px at 400px 350px, teal 100%, transparent),
+    radial-gradient(2px 2px at 500px 100px, teal 100%, transparent);
   /* radial-gradient(2px 2px at 50px 200px, green 100%, transparent); */
   /* radial-gradient(2px 2px at 150px 300px, pink 100%, transparent), */
   /* radial-gradient(2px 2px at 250px 400px, violet 100%, transparent), */
@@ -254,14 +254,14 @@ body {
 
 .snow:before {
   margin-left: -350px;
-  /* opacity: 0.7; */
+  opacity: 0.7;
   /* filter: blur(1px); */
   animation-duration: 9s;
   animation-direction: reverse;
 }
 
-@keyframes snow {
+/* @keyframes snow {
   to {
     transform: translateY(650px);
   }
-}
+} */

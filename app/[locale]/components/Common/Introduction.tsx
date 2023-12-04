@@ -28,7 +28,7 @@ fontDescription?: string;
     
 return (
     <>
-    <section id="introduction" className={`relative z-10 rounded-xl overflow-hidden py-10 mt-28 m-8 lg:mt-[72px] bg-[linear-gradient(45deg,_#53b700,_#00c1bf)] dark:bg-none ${ fontFamily}`}>
+    <section id="introduction" className={`relative z-10 rounded-xl overflow-hidden py-10 mt-28 md:mx-8 lg:mt-[72px] bg-[linear-gradient(45deg,_#53b700,_#00c1bf)] dark:bg-none ${ fontFamily}`}>
         <div className="flex items-center">
 
             <div className="container">
