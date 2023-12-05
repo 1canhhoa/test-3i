@@ -43,7 +43,7 @@ export default async function Page({ params }: Props) {
   
   const data = await GetItem(Number(params.id));
   const languageChoose = params.locale;
-  // console.log('data',data);
+  console.log('data',data?.data?.attributes);
   
   let dataFile = data?.data?.attributes;
   let dataContent = data?.data?.content;
@@ -52,17 +52,17 @@ export default async function Page({ params }: Props) {
   let catId = data?.data?.cat_id;
   const dataLanguage = data?.data?.multiple_language;
 
-  if (languageChoose !== "vi" && params.id !== "383") {
-    const multiLanguage = JSON.parse(dataLanguage);
-    multiLanguage.map((item) => {
-      if (item.lgn === languageChoose){
-        dataContent = item.content;
-        titleContent = item.title;
-        descriptionContent = item.short_content;
-        return [dataContent, titleContent, descriptionContent];
-      }
-    });
-  }
+  // if (languageChoose !== "vi" && params.id !== "383") {
+  //   const multiLanguage = JSON.parse(dataLanguage);
+  //   multiLanguage.map((item) => {
+  //     if (item.lgn === languageChoose){
+  //       dataContent = item.content;
+  //       titleContent = item.title;
+  //       descriptionContent = item.short_content;
+  //       return [dataContent, titleContent, descriptionContent];
+  //     }
+  //   });
+  // }
   return (
     <div className="relative">
       <Head>

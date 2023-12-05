@@ -8,7 +8,7 @@ import Productlayout from "./layout/Productlayout";
 import "node_modules/react-modal-video/css/modal-video.css";
 import "@/styles/index.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
+import Chat from "./components/Chat/ChatIcon";
 export default function RootLayout({
   children,
   params
@@ -31,6 +31,7 @@ export default function RootLayout({
     return (
       <LayoutRoot>
         {children}
+        <Chat/>
       </LayoutRoot>
   );
 }
