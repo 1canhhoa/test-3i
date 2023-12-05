@@ -1,6 +1,6 @@
 'use client'
 import Footer from "../[locale]/components/Footer";
-import { useRouter,usePathname } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import Header from "../[locale]/components/Header";
 import ScrollToTop from "../[locale]/components/ScrollToTop";
 import LayoutRoot from "./layout/Rootlayout";
@@ -14,25 +14,25 @@ export default function RootLayout({
   params
 }: {
   children: React.ReactNode;
-  params?:any
+  params?: any
 }) {
-  
-  const router:any = usePathname();
-  console.log("router",router);
+
+  const router: any = usePathname();
+  console.log("router", router);
   // if(router.startsWith('/products/') || router === '/products' ){
-    if(router === '/pss' ){
+  if (router === '/pss') {
     const productId = router.split('/')[2];
     return (
       <Productlayout>
         {children}
       </Productlayout>
-  )
-  }else{
+    )
+  } else {
     return (
       <LayoutRoot>
         {children}
-        <Chat/>
+        <Chat />
       </LayoutRoot>
-  );
-}
+    );
+  }
 }

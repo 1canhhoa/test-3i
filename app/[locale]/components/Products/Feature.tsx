@@ -5,7 +5,7 @@ import { GiShieldEchoes } from "react-icons/gi";
 import { SiCodechef } from "react-icons/si";
 import { SiSpeakerdeck } from "react-icons/si";
 import hieusuat from '../../../../public/images/products/hieusuat.jpeg'
-import capnhat from '../../../../public/images/products/cập nhật.jpeg'
+import capnhat from '../../../../public/images/products/capnhat.jpeg'
 import baomat from '../../../../public/images/products/baomat.jpeg'
 import tietkiem from '../../../../public/images/products/tietkiem.jpeg'
 import Image from 'next/image';
