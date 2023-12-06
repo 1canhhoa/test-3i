@@ -13,7 +13,7 @@ const Feature = ({pageName}:{pageName:string}) => {
   return (
     <div className='lg:h-[300px] relative '>
       <div className='z-[1000] bg-[#e7f6e2] lg:bg-transparent h-full top-0 left-0 lg:absolute lg:-translate-y-[200px] w-full flex flex-col gap-8'>
-        <div className=' text-[#3b3663] text-base font-medium bottom-40 flex flex-col justify-center items-center'>
+        <div className=' text-[#3b3663] text-center text-base font-medium bottom-40 flex flex-col justify-center items-center'>
           Tính năng
           <div className='text-xl md:text-3xl font-semibold'>
            Ưu điểm và lợi ích của
@@ -22,14 +22,14 @@ const Feature = ({pageName}:{pageName:string}) => {
           {pageName}
           </div>
         </div>
-        <div className='grid grid-cols-1 md:gap-6 md:grid-cols-2 lg:grid-cols-4 mx-4'>
+        <div className='grid grid-cols-1 gap-2 md:gap-6 md:grid-cols-2 lg:grid-cols-4 mx-4'>
             <div className="rounded-md hover:scale-105 gap-4 shadow-lg flex text-lg flex-col justify-start items-center font-bold h-[350px] text-[rgb(59,54,99)] md:mt-[40px] bottom-0 bg-white border-[2px] border-gray-300">
               
               {/* <FaCodeCompare size={30}/> */}
               <Image width='350' height='200' className='h-[280px] rounded-tl-md rounded-tr-md' src={hieusuat} alt='ppp' />
               <div>Tăng Hiệu Suất Quản Lý</div>
             </div>
-            <div className="rounded-md hover:scale-105 gap-4 shadow-lg -translate-y-[50px] flex text-lg flex-col justify-start items-center font-bold h-[350px] text-[rgb(59,54,99)] md:mt-[40px] bottom-0 bg-white border-[2px] border-gray-300">
+            <div className="rounded-md hover:scale-105 gap-4 shadow-lg md:-translate-y-[50px] flex text-lg flex-col justify-start items-center font-bold h-[350px] text-[rgb(59,54,99)] md:mt-[40px] bottom-0 bg-white border-[2px] border-gray-300">
             {/* <FaCodeCompare size={30}/> */}
             <Image width='350' height='200' className='h-[280px]  rounded-tl-md rounded-tr-md' src={baomat} alt='ppp' />
 
@@ -41,7 +41,7 @@ const Feature = ({pageName}:{pageName:string}) => {
 
               <div>Tiết Kiệm Thời Gian và Chi Phí</div>
             </div>
-            <div className="rounded-md hover:scale-105 gap-4 shadow-lg flex text-lg -translate-y-[50px] flex-col justify-start items-center font-bold h-[350px] text-[rgb(59,54,99)] md:mt-[40px] bottom-0 bg-white border-[2px] border-gray-300">
+            <div className="rounded-md hover:scale-105 gap-4 shadow-lg flex text-lg md:-translate-y-[50px] flex-col justify-start items-center font-bold h-[350px] text-[rgb(59,54,99)] md:mt-[40px] bottom-0 bg-white border-[2px] border-gray-300">
             {/* <FaCodeCompare size={30}/> */}
             <Image width='350' height='350' src={capnhat} className='h-[280px] rounded-tl-md rounded-tr-md' alt='ppp' />
 

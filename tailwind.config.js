@@ -47,6 +47,7 @@ module.exports = {
     },
     extend: {
       colors: { 
+        amber:colors.amber,
         transparent: 'transparent', 
         current: 'currentColor', 
         black: colors.black, 

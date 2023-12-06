@@ -32,7 +32,7 @@ export default function RootLayout({
 
   return (
     <html>
-      <body className={`dark:bg-black`}>
+      <body className={`dark:bg-black overflow-x-hidden`}>
           <Providers >
             <Header />
             {children}

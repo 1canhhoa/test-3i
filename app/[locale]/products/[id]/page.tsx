@@ -1,5 +1,7 @@
-// "use client"
+"use client"
 import Head from "next/head";
+import { useRouter, usePathname } from 'next/navigation';
+
 import { useState, useEffect } from 'react';
 import { ResolvingMetadata, type Metadata } from "next";
 import { Merriweather, Noto_Serif, Inter } from "next/font/google";
@@ -16,18 +18,18 @@ import { local } from "../../utils/http";
 import Hero from "../../components/Products/Hero";
 import Feature from "../../components/Products/Feature";
 import Feedback from "../../components/Products/Feedback";
-import ChatIcon from "../../components/Chat/ChatIcon"
-import { useRouter } from 'next/router';
+import Chat from "../../components/Chat/Chat"
+import ChatIcon from "../../components/Chat/ChatIcon";
 interface Props {
-  param: { locale: string | undefined; id: string | undefined };
+  params: { locale: string | undefined; id: string | undefined };
 };
 
 // export async function generateMetadata(
-//   { param }: Props,
+//   { params }: Props,
 //   parent: ResolvingMetadata
 // ): Promise<Metadata> {
 
-//   const id = param.id;
+//   const id = params.id;
 //   const product = await GetItem(Number(id));
 //   const previousImages = (await parent).openGraph?.images || [];
 
@@ -39,56 +41,54 @@ interface Props {
 //     },
 //   };
 // }
-export default async function Page({ param }: Props | undefined) {
+const Page =({ params }: Props )=> {
   // export default async function Page() {
+console.log('params',params);
 
-  // const router = useRouter();
-  // const pathname = router.pathname;
-  // const productId = pat.split("/").pop();
+  // const router = usePathname();
+  // const params = router.split("/").pop();
 
-  const data = await GetItem(Number(param?.id));
-  const languageChoose = param?.locale;
-  const gallery = data?.data?.gallery
-  let dataFile = data?.data?.attributes;
-  let dataContent = data?.data?.content;
-  let titleContent = data?.data?.title;
-  let descriptionContent = data?.data?.short_content;
-  let catId = data?.data?.cat_id;
-  const dataLanguage = data?.data?.multiple_language;
+  // const data = await GetItem(Number(params?.id));
+  // // const languageChoose = params?.locale;
+  // const gallery = data?.data?.gallery
+  // let dataFile = data?.data?.attributes;
+  // let dataContent = data?.data?.content;
+  // let titleContent = data?.data?.title;
+  // let descriptionContent = data?.data?.short_content;
+  // let catId = data?.data?.cat_id;
+  // const dataLanguage = data?.data?.multiple_language;
 
 
-  // const [dataFile, setDataFile] = useState(null);
-  // const [gallery, setGallery] = useState(null);
-  // const [dataContent, setDataContent] = useState(null);
-  // const [titleContent, setTitleContent] = useState(null);
-  // const [descriptionContent, setDescriptionContent] = useState(null);
-  // const [catId, setCatId] = useState(null);
-  // const [dataLanguage, setDataLanguage] = useState(null);
+  const [dataFile, setDataFile] = useState(null);
+  const [gallery, setGallery] = useState(null);
+  const [dataContent, setDataContent] = useState(null);
+  const [titleContent, setTitleContent] = useState(null);
+  const [descriptionContent, setDescriptionContent] = useState(null);
+  const [catId, setCatId] = useState(null);
+  const [dataLanguage, setDataLanguage] = useState(null);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const result = await GetItem(Number(router.query.id));
-  //       console.log('result', result);
-
-  //       if (result && result.data) {
-  //         const { attributes, content, title, short_content, cat_id, gallery, multiple_language } = result.data;
-  //         setGallery(gallery)
-  //         setDataFile(attributes);
-  //         setDataContent(content);
-  //         setTitleContent(title);
-  //         setDescriptionContent(short_content);
-  //         setCatId(cat_id);
-  //         setDataLanguage(multiple_language);
-  //       }
-  //     } catch (error) {
-  //       console.error('Error fetching data:', error);
-  //     }
-  //   };
-
-  //   fetchData(); // Gọi hàm fetchData khi param thay đổi hoặc khi component được tạo ra lần đầu tiên
-  // }, [router.query.id]);
-  // if (languageChoose !== "vi" && param.id !== "383") {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await GetItem(Number(params.id));
+        console.log('result', result);
+        if (result && result.data) {
+          const { attributes, content, title, short_content, cat_id, gallery, multiple_language } = result.data;
+          setGallery(gallery)
+          setDataFile(attributes);
+          setDataContent(content);
+          setTitleContent(title);
+          setDescriptionContent(short_content);
+          setCatId(cat_id);
+          setDataLanguage(multiple_language);
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData(); // Gọi hàm fetchData khi params thay đổi hoặc khi component được tạo ra lần đầu tiên
+  }, [params.id]);
+  // if (languageChoose !== "vi" && params.id !== "383") {
   //   const multiLanguage = JSON.parse(dataLanguage);
   //   multiLanguage.map((item) => {
   //     if (item.lgn === languageChoose){
@@ -124,7 +124,8 @@ export default async function Page({ param }: Props | undefined) {
         <Document fontTitle={systemStructure.className} title={titleContent} content={dataFile} />
       }
       <Contact />
-      {/* <ChatIcon pageName={titleContent} /> */}
+      <ChatIcon pageName={titleContent} />
     </div>
   );
 }
+export default Page

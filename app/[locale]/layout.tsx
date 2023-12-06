@@ -9,6 +9,7 @@ import "node_modules/react-modal-video/css/modal-video.css";
 import "@/styles/index.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Chat from "./components/Chat/ChatIcon";
+import ChatIcon from "./components/Chat/ChatIcon";
 export default function RootLayout({
   children,
   params
@@ -18,7 +19,7 @@ export default function RootLayout({
 }) {
 
   const router: any = usePathname();
-  console.log("router", router);
+  // console.log("router", router);
   // if(router.startsWith('/products/') || router === '/products' ){
   if (router === '/pss') {
     const productId = router.split('/')[2];
@@ -31,7 +32,7 @@ export default function RootLayout({
     return (
       <LayoutRoot>
         {children}
-        <Chat />
+        {/* <ChatIcon/> */}
       </LayoutRoot>
     );
   }
